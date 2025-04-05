@@ -9,6 +9,7 @@ import Servicios from "./pages/Servicios";
 import Proyectos from "./pages/Proyectos";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
+import { AnimatePresence } from "framer-motion";
 
 const queryClient = new QueryClient();
 
@@ -18,13 +19,15 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/servicios" element={<Servicios />} />
-          <Route path="/proyectos" element={<Proyectos />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/servicios" element={<Servicios />} />
+            <Route path="/proyectos" element={<Proyectos />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AnimatePresence>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
