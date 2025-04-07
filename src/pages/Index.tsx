@@ -402,12 +402,12 @@ const Home = () => {
 				</div> */}
 			</section>
 
-			<ProjectsSection />
-			<TestimonialsSection />
+			{/* <ProjectsSection /> 
+			<TestimonialsSection />*/}
 
 			{/* Counter Section */}
 			<section
-				className='section-padding bg-gradient-to-b from-gray-900 to-gray-800 text-white overflow-hidden relative'
+				className='section-padding bg-white text-teal-700 overflow-hidden relative'
 				ref={countersRef}
 			>
 				{/* Background pattern */}
@@ -453,7 +453,7 @@ const Home = () => {
 								animate={{ opacity: 1 }}
 								transition={{ duration: 2, yoyo: Infinity }}
 							>
-								<Briefcase className='w-8 h-8' />
+								<Briefcase className='w-8 h-8 text-teal-700' />
 								<motion.span
 									initial={{ opacity: 0, scale: 0.5 }}
 									animate={
@@ -462,10 +462,10 @@ const Home = () => {
 											: {}
 									}
 								>
-									150+
+									+500
 								</motion.span>
 							</motion.div>
-							<p className='text-lg text-gray-300'>Proyectos Completados</p>
+							<p className='text-lg text-teal-700'>Proyectos Completados</p>
 						</motion.div>
 
 						<motion.div variants={itemVariants} className='p-6 relative'>
@@ -487,7 +487,7 @@ const Home = () => {
 								animate={{ opacity: 1 }}
 								transition={{ duration: 2, yoyo: Infinity, delay: 0.3 }}
 							>
-								<Calendar className='w-8 h-8' />
+								<Calendar className='w-8 h-8 text-teal-700' />
 								<motion.span
 									initial={{ opacity: 0, scale: 0.5 }}
 									animate={
@@ -496,10 +496,10 @@ const Home = () => {
 											: {}
 									}
 								>
-									15+
+									+30
 								</motion.span>
 							</motion.div>
-							<p className='text-lg text-gray-300'>Años de Experiencia</p>
+							<p className='text-lg text-teal-700'>Años de Experiencia</p>
 						</motion.div>
 
 						<motion.div variants={itemVariants} className='p-6 relative'>
@@ -521,7 +521,7 @@ const Home = () => {
 								animate={{ opacity: 1 }}
 								transition={{ duration: 2, yoyo: Infinity, delay: 0.6 }}
 							>
-								<Users className='w-8 h-8' />
+								<Users className='w-8 h-8 text-teal-700' />
 								<motion.span
 									initial={{ opacity: 0, scale: 0.5 }}
 									animate={
@@ -530,10 +530,10 @@ const Home = () => {
 											: {}
 									}
 								>
-									50+
+									99 %
 								</motion.span>
 							</motion.div>
-							<p className='text-lg text-gray-300'>Profesionales Expertos</p>
+							<p className='text-lg text-teal-700'>Clientes Satisfechos</p>
 						</motion.div>
 
 						<motion.div variants={itemVariants} className='p-6 relative'>
@@ -555,7 +555,7 @@ const Home = () => {
 								animate={{ opacity: 1 }}
 								transition={{ duration: 2, yoyo: Infinity, delay: 0.9 }}
 							>
-								<Target className='w-8 h-8' />
+								<Target className='w-8 h-8 text-teal-700' />
 								<motion.span
 									initial={{ opacity: 0, scale: 0.5 }}
 									animate={
@@ -564,10 +564,10 @@ const Home = () => {
 											: {}
 									}
 								>
-									98%
+									100%
 								</motion.span>
 							</motion.div>
-							<p className='text-lg text-gray-300'>Clientes Satisfechos</p>
+							<p className='text-lg text-teal-700'>Mejores Precios</p>
 						</motion.div>
 					</motion.div>
 				</div>
