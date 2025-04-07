@@ -1,12 +1,12 @@
 
 import { useEffect, useRef } from "react";
-import Hero from "@/components/Hero";
+import ModernHero from "@/components/ModernHero";
 import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, CheckCircle, Clock, Users, Activity, Briefcase, Building, Shield } from "lucide-react";
+import { ArrowRight, Award, CheckCircle, Clock, Users, Activity, Briefcase, Building, Shield, Phone, Calendar, Target } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
@@ -75,21 +75,21 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Hero
+      <ModernHero
         title="Construimos el Futuro con Calidad y Precisión"
         subtitle="Soluciones integrales en construcción y albañilería para proyectos residenciales y comerciales con los más altos estándares de calidad."
-        backgroundImage="https://images.unsplash.com/photo-1486718448742-163732cd1544"
+        backgroundImage="https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=2832&auto=format&fit=crop"
         buttonText="Nuestros Servicios"
         buttonLink="/servicios"
       />
 
       {/* Why Choose Us */}
-      <section className="section-padding relative overflow-hidden bg-gray-50">
+      <section id="content-section" className="section-padding relative overflow-hidden bg-white dark:bg-gray-900">
         {/* Background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div style={{ y: y1 }} className="absolute -top-32 -right-32 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
           <motion.div style={{ y: y2 }} className="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)] opacity-20" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)] opacity-20 dark:bg-[radial-gradient(#2a2a2a_1px,transparent_1px)]" />
         </div>
         
         <div className="container mx-auto relative" ref={whyUsRef}>
@@ -100,7 +100,7 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="text-teal-500 text-sm font-semibold tracking-wider uppercase mb-2 block">Por qué elegirnos</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 relative inline-block dark:text-white">
               Excelencia en Cada Proyecto
               <motion.span 
                 className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-teal-500"
@@ -109,7 +109,7 @@ const Home = () => {
                 transition={{ delay: 0.4, duration: 0.8 }}
               ></motion.span>
             </h2>
-            <p className="text-construction-gray-600 max-w-3xl mx-auto text-lg">
+            <p className="text-construction-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg">
               Con más de 15 años de experiencia en el sector, ofrecemos soluciones
               constructivas de alta calidad con un enfoque centrado en el cliente.
             </p>
@@ -117,15 +117,20 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <motion.div 
-              className="bg-white rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 glass-card"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group"
               initial={{ opacity: 0, y: 50 }}
               animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ 
+                y: -5, 
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" 
+              }}
             >
-              <div className="w-16 h-16 bg-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-6 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-inner">
                 <Award className="text-teal-500" size={32} />
                 <motion.div 
-                  className="absolute inset-0 rounded-full bg-teal-500/20"
+                  className="absolute inset-0 rounded-xl bg-teal-500/10"
                   animate={{ 
                     scale: [1, 1.5, 1],
                     opacity: [0.5, 0, 0.5]
@@ -137,22 +142,27 @@ const Home = () => {
                   }}
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3">Calidad Superior</h3>
-              <p className="text-construction-gray-600">
+              <h3 className="text-xl font-bold mb-3 dark:text-white">Calidad Superior</h3>
+              <p className="text-construction-gray-600 dark:text-gray-300">
                 Utilizamos materiales de primera calidad y las mejores técnicas constructivas para garantizar resultados duraderos.
               </p>
             </motion.div>
 
             <motion.div 
-              className="bg-white rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 glass-card"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group"
               initial={{ opacity: 0, y: 50 }}
               animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ 
+                y: -5, 
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" 
+              }}
             >
-              <div className="w-16 h-16 bg-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-6 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-inner">
                 <Users className="text-teal-500" size={32} />
                 <motion.div 
-                  className="absolute inset-0 rounded-full bg-teal-500/20"
+                  className="absolute inset-0 rounded-xl bg-teal-500/10"
                   animate={{ 
                     scale: [1, 1.5, 1],
                     opacity: [0.5, 0, 0.5]
@@ -165,22 +175,27 @@ const Home = () => {
                   }}
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3">Equipo Profesional</h3>
-              <p className="text-construction-gray-600">
+              <h3 className="text-xl font-bold mb-3 dark:text-white">Equipo Profesional</h3>
+              <p className="text-construction-gray-600 dark:text-gray-300">
                 Contamos con un equipo de arquitectos, ingenieros y técnicos con amplia experiencia y capacitación continua.
               </p>
             </motion.div>
 
             <motion.div 
-              className="bg-white rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 glass-card"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group"
               initial={{ opacity: 0, y: 50 }}
               animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ 
+                y: -5, 
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" 
+              }}
             >
-              <div className="w-16 h-16 bg-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-6 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-inner">
                 <Clock className="text-teal-500" size={32} />
                 <motion.div 
-                  className="absolute inset-0 rounded-full bg-teal-500/20"
+                  className="absolute inset-0 rounded-xl bg-teal-500/10"
                   animate={{ 
                     scale: [1, 1.5, 1],
                     opacity: [0.5, 0, 0.5]
@@ -193,22 +208,27 @@ const Home = () => {
                   }}
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3">Entregas a Tiempo</h3>
-              <p className="text-construction-gray-600">
+              <h3 className="text-xl font-bold mb-3 dark:text-white">Entregas a Tiempo</h3>
+              <p className="text-construction-gray-600 dark:text-gray-300">
                 Cumplimos rigurosamente con los plazos establecidos, respetando el cronograma acordado con nuestros clientes.
               </p>
             </motion.div>
 
             <motion.div 
-              className="bg-white rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 glass-card"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group"
               initial={{ opacity: 0, y: 50 }}
               animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ 
+                y: -5, 
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" 
+              }}
             >
-              <div className="w-16 h-16 bg-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-6 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-inner">
                 <CheckCircle className="text-teal-500" size={32} />
                 <motion.div 
-                  className="absolute inset-0 rounded-full bg-teal-500/20"
+                  className="absolute inset-0 rounded-xl bg-teal-500/10"
                   animate={{ 
                     scale: [1, 1.5, 1],
                     opacity: [0.5, 0, 0.5]
@@ -221,8 +241,8 @@ const Home = () => {
                   }}
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3">Servicio Garantizado</h3>
-              <p className="text-construction-gray-600">
+              <h3 className="text-xl font-bold mb-3 dark:text-white">Servicio Garantizado</h3>
+              <p className="text-construction-gray-600 dark:text-gray-300">
                 Ofrecemos garantía en todos nuestros trabajos, asegurando la satisfacción total de nuestros clientes.
               </p>
             </motion.div>
@@ -235,7 +255,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <Link to="/nosotros">
-              <Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white">
+              <Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white dark:text-teal-400 dark:hover:text-white">
                 Conocer Más Sobre Nosotros <ArrowRight className="ml-2" size={18} />
               </Button>
             </Link>
@@ -279,14 +299,14 @@ const Home = () => {
         
         <div className="absolute inset-0 bg-fixed opacity-20" 
              style={{ 
-                backgroundImage: "url('https://images.unsplash.com/photo-1431576901776-e539bd916ba2')",
+                backgroundImage: "url('https://images.unsplash.com/photo-1604079628040-94301bb21b91?q=80&w=1974&auto=format&fit=crop')",
                 backgroundSize: "cover",
                 backgroundPosition: "center"
              }}>
         </div>
 
         {/* Animated particles */}
-        {[...Array(8)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 rounded-full bg-white/30"
@@ -340,13 +360,26 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Link to="/contacto">
-                <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-6 text-lg shadow-lg btn-glow">
-                  Solicitar Cotización
+                <Button className="bg-white text-teal-700 hover:bg-gray-100 hover:text-teal-800 px-8 py-6 text-lg shadow-lg relative overflow-hidden group">
+                  <Phone className="mr-2 h-4 w-4" />
+                  <span>Solicitar Cotización</span>
+                  <motion.span 
+                    className="absolute inset-0 bg-white/20"
+                    animate={{
+                      scale: [1, 1.5, 1],
+                      opacity: [0, 0.3, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity
+                    }}
+                  />
                 </Button>
               </Link>
               <Link to="/proyectos">
                 <Button variant="outline" className="border-white/70 text-white hover:bg-white/10 px-8 py-6 text-lg">
-                  Ver Proyectos
+                  <Briefcase className="mr-2 h-4 w-4" />
+                  <span>Ver Proyectos</span>
                 </Button>
               </Link>
             </motion.div>
@@ -355,7 +388,7 @@ const Home = () => {
 
         {/* Wave bottom divider */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-          <svg className="relative block w-full h-[50px] fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="relative block w-full h-[50px] fill-white dark:fill-gray-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.11,144.07,96.17,194.42,85.5,262.57,72.93,252.26,57.35,321.39,56.44Z"></path>
           </svg>
         </div>
@@ -435,7 +468,7 @@ const Home = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2, yoyo: Infinity, delay: 0.3 }}
               >
-                <Activity className="w-8 h-8" />
+                <Calendar className="w-8 h-8" />
                 <motion.span
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={isCountersVisible ? 
@@ -493,7 +526,7 @@ const Home = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2, yoyo: Infinity, delay: 0.9 }}
               >
-                <Shield className="w-8 h-8" />
+                <Target className="w-8 h-8" />
                 <motion.span
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={isCountersVisible ? 
