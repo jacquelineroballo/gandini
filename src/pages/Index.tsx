@@ -366,8 +366,8 @@ const Home = () => {
 							animate={isCtaVisible ? { opacity: 1 } : {}}
 							transition={{ duration: 0.8, delay: 0.4 }}
 						>
-							Contáctanos hoy mismo para una consulta gratuita y descubre cómo podemos hacer
-							realidad tu visión.
+							Contactanos hoy para una consulta gratuita y descubramos cómo llevar tu visión al
+							siguiente nivel. ¡El futuro de tus proyectos empieza aquí!
 						</motion.p>
 
 						<motion.div
@@ -377,26 +377,15 @@ const Home = () => {
 							transition={{ duration: 0.8, delay: 0.6 }}
 						>
 							<Link to='/contacto'>
-								<Button className='bg-white text-teal-700 hover:bg-gray-100 hover:text-teal-800 px-8 py-6 text-lg shadow-lg relative overflow-hidden group'>
+								<Button className='border-2 border-white/30 bg-transparent text-white hover:bg-white hover:text-teal-700 px-8 py-6 text-lg backdrop-blur-sm'>
 									<Phone className='mr-2 h-4 w-4' />
 									<span>Solicitar Cotización</span>
-									<motion.span
-										className='absolute inset-0 bg-white/20'
-										animate={{
-											scale: [1, 1.5, 1],
-											opacity: [0, 0.3, 0],
-										}}
-										transition={{
-											duration: 2,
-											repeat: Infinity,
-										}}
-									/>
 								</Button>
 							</Link>
 							<Link to='/proyectos'>
 								<Button
 									variant='outline'
-									className='border-white/70 text-white hover:bg-white/10 px-8 py-6 text-lg'
+									className='border-white/70 text-teal-700 hover:bg-white/10 hover:text-white px-8 py-6 text-lg'
 								>
 									<Briefcase className='mr-2 h-4 w-4' />
 									<span>Ver Proyectos</span>
