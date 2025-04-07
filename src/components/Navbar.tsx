@@ -152,10 +152,10 @@ const Navbar = () => {
 										<Link to={link.href}>
 											<NavigationMenuLink
 												className={cn(
-													'group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-white text-sm font-medium transition-colors hover:bg-teal-500/10 hover:text-teal-500 focus:bg-teal-500/10 focus:text-teal-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50',
+													'group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-teal-500/10 hover:text-teal-500 focus:bg-teal-500/10 focus:text-teal-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50',
 													isActive(link.href)
 														? 'bg-teal-500/10 text-teal-500 font-semibold'
-														: 'text-gray-700 dark:text-gray-200'
+														: 'text-gray-400 dark:text-gray-200'
 												)}
 											>
 												<motion.div variants={itemVariants} className='flex items-center gap-1.5'>
@@ -231,7 +231,10 @@ const Navbar = () => {
 						</NavigationMenu>
 
 						<motion.div variants={itemVariants} className='ml-4' whileHover={{ scale: 1.05 }}>
-							<Button className='bg-teal-500 hover:bg-teal-600 text-white shadow-lg btn-glow'>
+							<Button
+								className='bg-teal-500 hover:bg-teal-600 text-white shadow-lg btn-glow'
+								onClick={() => window.open('/contacto', '_blank')}
+							>
 								<Phone className='mr-2 h-4 w-4' /> Cotización Gratis
 							</Button>
 						</motion.div>
@@ -254,7 +257,7 @@ const Navbar = () => {
 									<DrawerTitle className='flex items-center justify-center'>
 										<span className='text-teal-500'>Gandini</span>
 									</DrawerTitle>
-									<DrawerDescription className='text-center'>Navegación</DrawerDescription>
+									{/* <DrawerDescription className='text-center'>Navegación</DrawerDescription> */}
 								</DrawerHeader>
 								<div className='px-4 py-2 space-y-2'>
 									{navLinks.map((link) => (
@@ -308,8 +311,15 @@ const Navbar = () => {
 								</div>
 								<DrawerFooter>
 									<DrawerClose asChild>
-										<Button className='bg-teal-500 hover:bg-teal-600 w-full shadow-lg'>
-											<Phone className='mr-2 h-4 w-4' /> Solicitar Cotización
+										<Button
+											className='bg-teal-500 hover:bg-teal-600 w-full shadow-lg'
+											onClick={() => window.open('/contacto', '_blank')}
+										>
+											<Phone
+												className='mr-2 h-4 w-4'
+												onClick={() => window.open('/contacto', '_blank')}
+											/>{' '}
+											Solicitar Cotización
 										</Button>
 									</DrawerClose>
 								</DrawerFooter>
