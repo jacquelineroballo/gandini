@@ -136,16 +136,16 @@ const Home = () => {
 
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
 						<motion.div
-							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
+							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
 							initial={{ opacity: 0, y: 50 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.6, delay: 0.1 }}
+							transition={{ duration: 0.2, delay: 0.1 }}
 							whileHover={{
 								y: -5,
 								boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
 							}}
 						>
-							<div className='absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+							<div className='absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 							<div className='w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-inner'>
 								<Award className='text-teal-500' size={32} />
 								<motion.div
@@ -167,7 +167,7 @@ const Home = () => {
 							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
 							initial={{ opacity: 0, y: 50 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.6, delay: 0.2 }}
+							transition={{ duration: 0.2, delay: 0.2 }}
 							whileHover={{
 								y: -5,
 								boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
@@ -195,7 +195,7 @@ const Home = () => {
 							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
 							initial={{ opacity: 0, y: 50 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.6, delay: 0.3 }}
+							transition={{ duration: 0.2, delay: 0.3 }}
 							whileHover={{
 								y: -5,
 								boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
@@ -223,7 +223,7 @@ const Home = () => {
 							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
 							initial={{ opacity: 0, y: 50 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.6, delay: 0.4 }}
+							transition={{ duration: 0.2, delay: 0.4 }}
 							whileHover={{
 								y: -5,
 								boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
