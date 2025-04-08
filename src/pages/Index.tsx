@@ -102,10 +102,6 @@ const Home = () => {
 			>
 				{/* Background elements */}
 				<div className='absolute inset-0 overflow-hidden'>
-					{/* <motion.div
-						style={{ y: y1 }}
-						className='absolute -top-32 -right-32 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl'
-					/> */}
 					<motion.div
 						style={{ y: y2 }}
 						className='absolute -bottom-32 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl'
@@ -132,7 +128,7 @@ const Home = () => {
 								transition={{ delay: 0.4, duration: 0.8 }}
 							></motion.span>
 						</h2>
-						<p className='text-construction-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg'>
+						<p className='text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg'>
 							Con más de 30 años de experiencia en el sector, ofrecemos soluciones constructivas de
 							alta calidad con un enfoque centrado en el cliente.
 						</p>
@@ -140,7 +136,7 @@ const Home = () => {
 
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
 						<motion.div
-							className='bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
+							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
 							initial={{ opacity: 0, y: 50 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
 							transition={{ duration: 0.6, delay: 0.1 }}
@@ -158,22 +154,17 @@ const Home = () => {
 										scale: [1, 1.5, 1],
 										opacity: [0.5, 0, 0.5],
 									}}
-									transition={{
-										duration: 3,
-										repeat: Infinity,
-										ease: 'easeInOut',
-									}}
 								/>
 							</div>
 							<h3 className='text-xl font-bold mb-3 dark:text-white'>Calidad Superior</h3>
-							<p className='text-construction-gray-600 dark:text-gray-300'>
+							<p className='text-gray-600 dark:text-gray-300'>
 								Utilizamos materiales de primera calidad y las mejores técnicas constructivas para
 								garantizar resultados duraderos.
 							</p>
 						</motion.div>
 
 						<motion.div
-							className='bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
+							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
 							initial={{ opacity: 0, y: 50 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
 							transition={{ duration: 0.6, delay: 0.2 }}
@@ -191,23 +182,17 @@ const Home = () => {
 										scale: [1, 1.5, 1],
 										opacity: [0.5, 0, 0.5],
 									}}
-									transition={{
-										duration: 3,
-										repeat: Infinity,
-										ease: 'easeInOut',
-										delay: 0.5,
-									}}
 								/>
 							</div>
 							<h3 className='text-xl font-bold mb-3 dark:text-white'>Equipo Profesional</h3>
-							<p className='text-construction-gray-600 dark:text-gray-300'>
+							<p className='text-gray-600 dark:text-gray-300'>
 								Nos dedicamos a mantenernos a la vanguardia a través de constante capacitación,
 								asegurándonos de ofrecer soluciones innovadoras y de calidad.
 							</p>
 						</motion.div>
 
 						<motion.div
-							className='bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
+							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
 							initial={{ opacity: 0, y: 50 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
 							transition={{ duration: 0.6, delay: 0.3 }}
@@ -225,23 +210,17 @@ const Home = () => {
 										scale: [1, 1.5, 1],
 										opacity: [0.5, 0, 0.5],
 									}}
-									transition={{
-										duration: 3,
-										repeat: Infinity,
-										ease: 'easeInOut',
-										delay: 1,
-									}}
 								/>
 							</div>
 							<h3 className='text-xl font-bold mb-3 dark:text-white'>Entregas a Tiempo</h3>
-							<p className='text-construction-gray-600 dark:text-gray-300'>
+							<p className='text-gray-600 dark:text-gray-300'>
 								Cumplimos rigurosamente con los plazos establecidos, respetando el cronograma
 								acordado con nuestros clientes.
 							</p>
 						</motion.div>
 
 						<motion.div
-							className='bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 text-center hover-scale hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
+							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
 							initial={{ opacity: 0, y: 50 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
 							transition={{ duration: 0.6, delay: 0.4 }}
@@ -259,16 +238,10 @@ const Home = () => {
 										scale: [1, 1.5, 1],
 										opacity: [0.5, 0, 0.5],
 									}}
-									transition={{
-										duration: 3,
-										repeat: Infinity,
-										ease: 'easeInOut',
-										delay: 1.5,
-									}}
 								/>
 							</div>
 							<h3 className='text-xl font-bold mb-3 dark:text-white'>Innovación</h3>
-							<p className='text-construction-gray-600 dark:text-gray-300'>
+							<p className='text-gray-600 dark:text-gray-300'>
 								Implementamos las últimas herramientas del mercado. Garantizando soluciones
 								eficientes, adaptadas a las necesidades de nuestros clientes.
 							</p>
