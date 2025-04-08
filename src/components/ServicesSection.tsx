@@ -78,7 +78,7 @@ const ServicesSection = () => {
 								</div>
 							</div>
 							<div className='p-6'>
-								<h3 className='text-xl font-bold mb-3'>{service.title}</h3>
+								<h3 className='dark:text-teal-700 text-xl font-bold mb-3'>{service.title}</h3>
 								<p className='text-gray-600 mb-4'>{service.description}</p>
 							</div>
 						</div>
