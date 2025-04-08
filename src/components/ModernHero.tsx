@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import { ArrowRight, ChevronDown, Briefcase } from 'lucide-react'
 
 interface HeroProps {
 	title: string
@@ -165,34 +165,17 @@ const ModernHero = ({
 							</Button>
 						</Link>
 
-						<Button
-							className='border-2 border-white/30 bg-transparent hover:bg-white/10 text-white px-8 py-6 text-lg backdrop-blur-sm'
-							variant='outline'
-							size='lg'
-							onClick={() => window.open('/proyectos', '_blank')}
-						>
-							Ver Portafolio
-						</Button>
+						<Link to='/proyectos'>
+							<Button
+								variant='outline'
+								className='dark:bg-white border-white/70 text-teal-700 hover:bg-white/10 hover:text-white px-8 py-6 text-lg'
+							>
+								<Briefcase className='mr-2 h-4 w-4' />
+								<span>Ver Proyectos</span>
+							</Button>
+						</Link>
 					</motion.div>
 
-					{/* <motion.div
-						className='absolute bottom-15 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer'
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 1.5, duration: 0.8 }}
-						onClick={scrollToContent}
-					>
-						<motion.p
-							className='text-white/80 text-sm'
-							animate={{ y: [0, 5, 0] }}
-							transition={{ duration: 2, repeat: Infinity }}
-						>
-							Descubre más
-						</motion.p>
-						<motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-							<ChevronDown className='w-5 h-5 text-white/80' />
-						</motion.div>
-					</motion.div> */}
 				</div>
 			</div>
 
