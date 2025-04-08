@@ -358,7 +358,7 @@ const Home = () => {
 							<Link to='/proyectos'>
 								<Button
 									variant='outline'
-									className='border-white/70 text-teal-700 hover:bg-white/10 hover:text-white px-8 py-6 text-lg'
+									className='dark:bg-white/10 border-white/70 text-teal-700 hover:bg-white/10 hover:text-white px-8 py-6 text-lg'
 								>
 									<Briefcase className='mr-2 h-4 w-4' />
 									<span>Ver Proyectos</span>
@@ -367,16 +367,7 @@ const Home = () => {
 						</motion.div>
 					</motion.div>
 				</div>
-
-				{/* <div className='absolute bottom-10 left-0 w-full overflow-hidden'>
-					<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
-						<path fill='#ffffff' fill-opacity='1' d='M0,224L1440,64L1440,320L0,320Z'></path>
-					</svg>
-				</div> */}
 			</section>
-
-			{/* <ProjectsSection /> 
-			<TestimonialsSection />*/}
 
 			{/* Counter Section */}
 			<section
