@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, House } from 'lucide-react'
 
 interface Service {
 	id: number
@@ -58,7 +58,7 @@ const ServicesSection = () => {
 					<h2 className='text-3xl md:text-4xl font-bold mb-4 relative inline-block'>
 						Nuestros Servicios
 					</h2>
-					<p className='text-construction-gray-600 max-w-3xl mx-auto'>
+					<p className='text-gray-600 max-w-3xl mx-auto'>
 						Ofrecemos soluciones completas en construcción y albañilería, respaldadas por años de
 						experiencia y un equipo altamente calificado.
 					</p>
@@ -74,17 +74,12 @@ const ServicesSection = () => {
 						>
 							<div className='h-40 bg-gradient-to-br from-teal-700 to-blue-900 flex items-center justify-center'>
 								<div className='w-20 h-20 bg-white rounded-full flex items-center justify-center'>
-									<span className='text-4xl font-bold text-construction-orange-500'>
-										{service.id}
-									</span>
+									<span className='text-4xl font-bold text-gray-500'>{service.id}</span>
 								</div>
 							</div>
 							<div className='p-6'>
-								<h3 className='text-xl font-bold mb-3'>
-									{service.title}
-									<p>{service.icon}</p>
-								</h3>
-								<p className='text-construction-gray-600 mb-4'>{service.description}</p>
+								<h3 className='text-xl font-bold mb-3'>{service.title}</h3>
+								<p className='text-gray-600 mb-4'>{service.description}</p>
 							</div>
 						</div>
 					))}
