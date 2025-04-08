@@ -358,7 +358,7 @@ const Home = () => {
 							<Link to='/proyectos'>
 								<Button
 									variant='outline'
-									className='dark:bg-white/10 border-white/70 text-teal-700 hover:bg-white/10 hover:text-white px-8 py-6 text-lg'
+									className='dark:bg-white border-white/70 text-teal-700 hover:bg-white/10 hover:text-white px-8 py-6 text-lg'
 								>
 									<Briefcase className='mr-2 h-4 w-4' />
 									<span>Ver Proyectos</span>
