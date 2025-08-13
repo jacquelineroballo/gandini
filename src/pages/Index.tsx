@@ -50,16 +50,15 @@ const Home = () => {
 
 	// Parallax scrolling effect
 	const { scrollY } = useScroll()
-	const y1 = useTransform(scrollY, [0, 500], [0, -100])
 	const y2 = useTransform(scrollY, [0, 500], [0, -50])
 
 	// Track element visibility for animations
 	const whyUsRef = useRef(null)
-	const ctaRef = useRef(null)
 	const countersRef = useRef(null)
+	const ctaRef = useRef(null)
 	const isWhyUsVisible = useInView(whyUsRef, { once: true, amount: 0.3 })
-	const isCtaVisible = useInView(ctaRef, { once: true, amount: 0.3 })
 	const isCountersVisible = useInView(countersRef, { once: true, amount: 0.3 })
+	const isCtaVisible = useInView(ctaRef, { once: true, amount: 0.3 })
 
 	// Counter animation variants
 	const containerVariants = {
@@ -68,24 +67,25 @@ const Home = () => {
 			opacity: 1,
 			transition: {
 				staggerChildren: 0.2,
+				delayChildren: 0.3,
 			},
 		},
 	}
 
 	const itemVariants = {
-		hidden: { opacity: 0, y: 20 },
+		hidden: { opacity: 0, y: 30 },
 		visible: {
 			opacity: 1,
 			y: 0,
 			transition: {
-				duration: 0.8,
+				duration: 0.6,
 				ease: 'easeOut',
 			},
 		},
 	}
 
 	return (
-		<>
+		<div>
 			<Navbar />
 			<ModernHero
 				title='Construimos el Futuro con Calidad y Precisión'
@@ -96,7 +96,7 @@ const Home = () => {
 			/>
 
 			{/* Why Choose Us */}
-			<section
+			<section 
 				id='content-section'
 				className='section-padding relative overflow-hidden bg-white dark:bg-gray-900'
 			>
@@ -134,119 +134,220 @@ const Home = () => {
 						</p>
 					</motion.div>
 
-					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+					<motion.div 
+						className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative'
+						initial={{ opacity: 0, scale: 0.95 }}
+						animate={isWhyUsVisible ? { opacity: 1, scale: 1 } : {}}
+						transition={{ duration: 0.6, ease: "easeOut" }}
+					>
+						{/* Card 1 - Calidad Superior - Estilo Glassmorphism */}
 						<motion.div
-							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
-							initial={{ opacity: 0, y: 50 }}
-							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.2, delay: 0.1 }}
+							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
+							initial={{ opacity: 0, y: 50, rotateY: -15 }}
+							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
+							transition={{ duration: 0.8, delay: 0.1, type: "spring" }}
 							whileHover={{
-								y: -5,
-								boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+								y: -10,
+								scale: 1.02,
+								rotateY: 5,
+								boxShadow: '0 30px 60px -12px rgba(20, 184, 166, 0.4)',
 							}}
+							style={{ transformStyle: 'preserve-3d' }}
 						>
-							<div className='absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-							<div className='w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-inner'>
-								<Award className='text-teal-500' size={32} />
+							{/* Efecto de brillo teal-azul */}
+							<motion.div
+								className='absolute inset-0 bg-gradient-to-br from-teal-500/20 via-blue-500/10 to-transparent rounded-2xl'
+								initial={{ opacity: 0 }}
+								whileHover={{ opacity: 1 }}
+								transition={{ duration: 0.3 }}
+							/>
+							
+							{/* Icono con efecto de corona */}
+							<motion.div 
+								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
+								whileHover={{ rotate: 360 }}
+								transition={{ duration: 0.8 }}
+							>
+								<Award className='text-white' size={36} />
+								{/* Anillo brillante */}
 								<motion.div
-									className='absolute inset-0 rounded-xl bg-teal-500/10'
+									className='absolute inset-0 rounded-full border-2 border-teal-300/50'
 									animate={{
-										scale: [1, 1.5, 1],
+										scale: [1, 1.3, 1],
 										opacity: [0.5, 0, 0.5],
 									}}
+									transition={{ duration: 2, repeat: Infinity }}
 								/>
-							</div>
-							<h3 className='text-xl font-bold mb-3 dark:text-white'>Calidad Superior</h3>
-							<p className='text-gray-600 dark:text-gray-300'>
+							</motion.div>
+							
+							<motion.h3 
+								className='text-xl font-bold mb-3 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent'
+								whileHover={{ scale: 1.05 }}
+							>
+								Calidad Superior
+							</motion.h3>
+							<p className='text-gray-600 dark:text-gray-300 leading-relaxed'>
 								Utilizamos materiales de primera calidad y las mejores técnicas constructivas para
 								garantizar resultados duraderos.
 							</p>
 						</motion.div>
 
+						{/* Card 2 - Equipo Profesional - Mismo Estilo Glassmorphism */}
 						<motion.div
-							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
-							initial={{ opacity: 0, y: 50 }}
-							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.2, delay: 0.2 }}
+							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
+							initial={{ opacity: 0, y: 50, rotateY: -15 }}
+							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
+							transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
 							whileHover={{
-								y: -5,
-								boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+								y: -10,
+								scale: 1.02,
+								rotateY: 5,
+								boxShadow: '0 30px 60px -12px rgba(20, 184, 166, 0.4)',
 							}}
+							style={{ transformStyle: 'preserve-3d' }}
 						>
-							<div className='absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
-							<div className='w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-inner'>
-								<Users className='text-teal-500' size={32} />
+							{/* Efecto de brillo teal-azul */}
+							<motion.div
+								className='absolute inset-0 bg-gradient-to-br from-teal-500/20 via-blue-500/10 to-transparent rounded-2xl'
+								initial={{ opacity: 0 }}
+								whileHover={{ opacity: 1 }}
+								transition={{ duration: 0.3 }}
+							/>
+							
+							{/* Icono con efecto de corona */}
+							<motion.div 
+								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
+								whileHover={{ rotate: 360 }}
+								transition={{ duration: 0.8 }}
+							>
+								<Users className='text-white' size={36} />
+								{/* Anillo brillante */}
 								<motion.div
-									className='absolute inset-0 rounded-xl bg-teal-500/10'
+									className='absolute inset-0 rounded-full border-2 border-teal-300/50'
 									animate={{
-										scale: [1, 1.5, 1],
+										scale: [1, 1.3, 1],
 										opacity: [0.5, 0, 0.5],
 									}}
+									transition={{ duration: 2, repeat: Infinity }}
 								/>
-							</div>
-							<h3 className='text-xl font-bold mb-3 dark:text-white'>Equipo Profesional</h3>
-							<p className='text-gray-600 dark:text-gray-300'>
+							</motion.div>
+							
+							<motion.h3 
+								className='text-xl font-bold mb-3 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent'
+								whileHover={{ scale: 1.05 }}
+							>
+								Equipo Profesional
+							</motion.h3>
+							<p className='text-gray-600 dark:text-gray-300 leading-relaxed'>
 								Nos dedicamos a mantenernos a la vanguardia a través de constante capacitación,
 								asegurándonos de ofrecer soluciones innovadoras y de calidad.
 							</p>
 						</motion.div>
 
+						{/* Card 3 - Entregas a Tiempo - Mismo Estilo Glassmorphism */}
 						<motion.div
-							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
-							initial={{ opacity: 0, y: 50 }}
-							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.2, delay: 0.3 }}
+							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
+							initial={{ opacity: 0, y: 50, rotateY: -15 }}
+							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
+							transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
 							whileHover={{
-								y: -5,
-								boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+								y: -10,
+								scale: 1.02,
+								rotateY: 5,
+								boxShadow: '0 30px 60px -12px rgba(20, 184, 166, 0.4)',
 							}}
+							style={{ transformStyle: 'preserve-3d' }}
 						>
-							<div className='absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
-							<div className='w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-inner'>
-								<Clock className='text-teal-500' size={32} />
+							{/* Efecto de brillo teal-azul */}
+							<motion.div
+								className='absolute inset-0 bg-gradient-to-br from-teal-500/20 via-blue-500/10 to-transparent rounded-2xl'
+								initial={{ opacity: 0 }}
+								whileHover={{ opacity: 1 }}
+								transition={{ duration: 0.3 }}
+							/>
+							
+							{/* Icono con efecto de corona */}
+							<motion.div 
+								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
+								whileHover={{ rotate: 360 }}
+								transition={{ duration: 0.8 }}
+							>
+								<Clock className='text-white' size={36} />
+								{/* Anillo brillante */}
 								<motion.div
-									className='absolute inset-0 rounded-xl bg-teal-500/10'
+									className='absolute inset-0 rounded-full border-2 border-teal-300/50'
 									animate={{
-										scale: [1, 1.5, 1],
+										scale: [1, 1.3, 1],
 										opacity: [0.5, 0, 0.5],
 									}}
+									transition={{ duration: 2, repeat: Infinity }}
 								/>
-							</div>
-							<h3 className='text-xl font-bold mb-3 dark:text-white'>Entregas a Tiempo</h3>
-							<p className='text-gray-600 dark:text-gray-300'>
+							</motion.div>
+							
+							<motion.h3 
+								className='text-xl font-bold mb-3 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent'
+								whileHover={{ scale: 1.05 }}
+							>
+								Entregas a Tiempo
+							</motion.h3>
+							<p className='text-gray-600 dark:text-gray-300 leading-relaxed'>
 								Cumplimos rigurosamente con los plazos establecidos, respetando el cronograma
 								acordado con nuestros clientes.
 							</p>
 						</motion.div>
 
+						{/* Card 4 - Innovación - Mismo Estilo Glassmorphism */}
 						<motion.div
-							className='bg-white dark:bg-gray-800 rounded-xl p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden group'
-							initial={{ opacity: 0, y: 50 }}
-							animate={isWhyUsVisible ? { opacity: 1, y: 0 } : {}}
-							transition={{ duration: 0.2, delay: 0.4 }}
+							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
+							initial={{ opacity: 0, y: 50, rotateY: -15 }}
+							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
+							transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
 							whileHover={{
-								y: -5,
-								boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+								y: -10,
+								scale: 1.02,
+								rotateY: 5,
+								boxShadow: '0 30px 60px -12px rgba(20, 184, 166, 0.4)',
 							}}
+							style={{ transformStyle: 'preserve-3d' }}
 						>
-							<div className='absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
-							<div className='w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-inner'>
-								<CheckCircle className='text-teal-500' size={32} />
+							{/* Efecto de brillo teal-azul */}
+							<motion.div
+								className='absolute inset-0 bg-gradient-to-br from-teal-500/20 via-blue-500/10 to-transparent rounded-2xl'
+								initial={{ opacity: 0 }}
+								whileHover={{ opacity: 1 }}
+								transition={{ duration: 0.3 }}
+							/>
+							
+							{/* Icono con efecto de corona */}
+							<motion.div 
+								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
+								whileHover={{ rotate: 360 }}
+								transition={{ duration: 0.8 }}
+							>
+								<CheckCircle className='text-white' size={36} />
+								{/* Anillo brillante */}
 								<motion.div
-									className='absolute inset-0 rounded-xl bg-teal-500/10'
+									className='absolute inset-0 rounded-full border-2 border-teal-300/50'
 									animate={{
-										scale: [1, 1.5, 1],
+										scale: [1, 1.3, 1],
 										opacity: [0.5, 0, 0.5],
 									}}
+									transition={{ duration: 2, repeat: Infinity }}
 								/>
-							</div>
-							<h3 className='text-xl font-bold mb-3 dark:text-white'>Innovación</h3>
-							<p className='text-gray-600 dark:text-gray-300'>
+							</motion.div>
+							
+							<motion.h3 
+								className='text-xl font-bold mb-3 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent'
+								whileHover={{ scale: 1.05 }}
+							>
+								Innovación
+							</motion.h3>
+							<p className='text-gray-600 dark:text-gray-300 leading-relaxed'>
 								Implementamos las últimas herramientas del mercado. Garantizando soluciones
 								eficientes, adaptadas a las necesidades de nuestros clientes.
 							</p>
 						</motion.div>
-					</div>
+					</motion.div>
 				</div>
 			</section>
 
@@ -371,174 +472,111 @@ const Home = () => {
 
 			{/* Counter Section */}
 			<section
-				className='section-padding bg-white text-teal-700 overflow-hidden relative'
+				className='section-padding bg-white dark:bg-gray-900 text-teal-700 overflow-hidden relative'
 				ref={countersRef}
 			>
 				{/* Background pattern */}
 				<div className='absolute inset-0 opacity-10'>
-					<div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Cg fill-rule=%22evenodd%22%3E%3Cg fill=%22%239C92AC%22 fill-opacity=%220.4%22%3E%3Cpath opacity=%22.5%22 d=%22M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]" />
+					<div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22%3E%3Cg fill=%22%23000%22 fill-opacity=%220.1%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%222%22/%3E%3C/g%3E%3C/svg%3E')] bg-repeat" />
 				</div>
 
-				<div className='container mx-auto relative'>
+				<div className='container mx-auto relative z-10'>
 					<motion.div
 						className='text-center mb-16'
 						initial={{ opacity: 0, y: 30 }}
 						animate={isCountersVisible ? { opacity: 1, y: 0 } : {}}
 						transition={{ duration: 0.8 }}
 					>
-						<span className='text-teal-400 text-sm font-semibold tracking-wider uppercase mb-2 block'>
-							Nuestros logros
+						<span className='text-teal-500 text-sm font-semibold tracking-wider uppercase mb-2 block'>
+							Nuestros Números
 						</span>
-						<h2 className='text-3xl md:text-4xl font-bold mb-4'>Números que hablan por sí solos</h2>
+						<h2 className='text-3xl md:text-4xl font-bold mb-4 relative inline-block dark:text-white'>
+							Resultados que Hablan por Sí Solos
+							<motion.span
+								className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-teal-500'
+								initial={{ width: 0 }}
+								animate={isCountersVisible ? { width: 80 } : {}}
+								transition={{ delay: 0.4, duration: 0.8 }}
+							></motion.span>
+						</h2>
+						<p className='text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg'>
+							Más de tres décadas construyendo confianza y excelencia en cada proyecto.
+						</p>
 					</motion.div>
 
 					<motion.div
-						className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center'
+						className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'
 						variants={containerVariants}
 						initial='hidden'
 						animate={isCountersVisible ? 'visible' : 'hidden'}
 					>
-						<motion.div variants={itemVariants} className='p-6 relative'>
-							<div className='absolute inset-0 bg-white/5 rounded-xl -z-10'></div>
-							<motion.div
-								className='absolute inset-0 bg-gradient-to-br from-teal-500/20 to-blue-500/10 rounded-xl -z-10'
-								animate={{
-									boxShadow: [
-										'0 0 0 0 rgba(20,184,166,0)',
-										'0 0 0 10px rgba(20,184,166,0.1)',
-										'0 0 0 0 rgba(20,184,166,0)',
-									],
-								}}
-								transition={{ duration: 3, repeat: Infinity }}
-							></motion.div>
-							<motion.div
-								className='text-5xl font-bold text-teal-400 mb-2 flex items-center justify-center gap-2'
-								initial={{ opacity: 0.3 }}
-								animate={{ opacity: 1 }}
-								transition={{ duration: 2, yoyo: Infinity }}
-							>
-								<Briefcase className='w-8 h-8 text-teal-700' />
-								<motion.span
-									initial={{ opacity: 0, scale: 0.5 }}
-									animate={
-										isCountersVisible
-											? { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 0.5 } }
-											: {}
-									}
-								>
-									+500
-								</motion.span>
-							</motion.div>
-							<p className='text-lg text-teal-700'>Proyectos Completados</p>
+						<motion.div
+							className='text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700'
+							variants={itemVariants}
+						>
+							<div className='w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-4'>
+								<Building className='text-teal-500' size={32} />
+							</div>
+							<div className='text-4xl font-bold text-teal-600 mb-2'>500+</div>
+							<div className='text-gray-600 dark:text-gray-300 font-medium'>Proyectos Completados</div>
 						</motion.div>
 
-						<motion.div variants={itemVariants} className='p-6 relative'>
-							<div className='absolute inset-0 bg-white/5 rounded-xl -z-10'></div>
-							<motion.div
-								className='absolute inset-0 bg-gradient-to-br from-teal-500/20 to-blue-500/10 rounded-xl -z-10'
-								animate={{
-									boxShadow: [
-										'0 0 0 0 rgba(20,184,166,0)',
-										'0 0 0 10px rgba(20,184,166,0.1)',
-										'0 0 0 0 rgba(20,184,166,0)',
-									],
-								}}
-								transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-							></motion.div>
-							<motion.div
-								className='text-5xl font-bold text-teal-400 mb-2 flex items-center justify-center gap-2'
-								initial={{ opacity: 0.3 }}
-								animate={{ opacity: 1 }}
-								transition={{ duration: 2, yoyo: Infinity, delay: 0.3 }}
-							>
-								<Calendar className='w-8 h-8 text-teal-700' />
-								<motion.span
-									initial={{ opacity: 0, scale: 0.5 }}
-									animate={
-										isCountersVisible
-											? { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 0.7 } }
-											: {}
-									}
-								>
-									+30
-								</motion.span>
-							</motion.div>
-							<p className='text-lg text-teal-700'>Años de Experiencia</p>
+						<motion.div
+							className='text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700'
+							variants={itemVariants}
+						>
+							<div className='w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-4'>
+								<Users className='text-teal-500' size={32} />
+							</div>
+							<div className='text-4xl font-bold text-teal-600 mb-2'>1000+</div>
+							<div className='text-gray-600 dark:text-gray-300 font-medium'>Clientes Satisfechos</div>
 						</motion.div>
 
-						<motion.div variants={itemVariants} className='p-6 relative'>
-							<div className='absolute inset-0 bg-white/5 rounded-xl -z-10'></div>
-							<motion.div
-								className='absolute inset-0 bg-gradient-to-br from-teal-500/20 to-blue-500/10 rounded-xl -z-10'
-								animate={{
-									boxShadow: [
-										'0 0 0 0 rgba(20,184,166,0)',
-										'0 0 0 10px rgba(20,184,166,0.1)',
-										'0 0 0 0 rgba(20,184,166,0)',
-									],
-								}}
-								transition={{ duration: 3, repeat: Infinity, delay: 2 }}
-							></motion.div>
-							<motion.div
-								className='text-5xl font-bold text-teal-400 mb-2 flex items-center justify-center gap-2'
-								initial={{ opacity: 0.3 }}
-								animate={{ opacity: 1 }}
-								transition={{ duration: 2, yoyo: Infinity, delay: 0.6 }}
-							>
-								<Users className='w-8 h-8 text-teal-700' />
-								<motion.span
-									initial={{ opacity: 0, scale: 0.5 }}
-									animate={
-										isCountersVisible
-											? { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 0.9 } }
-											: {}
-									}
-								>
-									99 %
-								</motion.span>
-							</motion.div>
-							<p className='text-lg text-teal-700'>Clientes Satisfechos</p>
+						<motion.div
+							className='text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700'
+							variants={itemVariants}
+						>
+							<div className='w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-4'>
+								<Calendar className='text-teal-500' size={32} />
+							</div>
+							<div className='text-4xl font-bold text-teal-600 mb-2'>30+</div>
+							<div className='text-gray-600 dark:text-gray-300 font-medium'>Años de Experiencia</div>
 						</motion.div>
 
-						<motion.div variants={itemVariants} className='p-6 relative'>
-							<div className='absolute inset-0 bg-white/5 rounded-xl -z-10'></div>
-							<motion.div
-								className='absolute inset-0 bg-gradient-to-br from-teal-500/20 to-blue-500/10 rounded-xl -z-10'
-								animate={{
-									boxShadow: [
-										'0 0 0 0 rgba(20,184,166,0)',
-										'0 0 0 10px rgba(20,184,166,0.1)',
-										'0 0 0 0 rgba(20,184,166,0)',
-									],
-								}}
-								transition={{ duration: 3, repeat: Infinity, delay: 3 }}
-							></motion.div>
-							<motion.div
-								className='text-5xl font-bold text-teal-400 mb-2 flex items-center justify-center gap-2'
-								initial={{ opacity: 0.3 }}
-								animate={{ opacity: 1 }}
-								transition={{ duration: 2, yoyo: Infinity, delay: 0.9 }}
-							>
-								<Target className='w-8 h-8 text-teal-700' />
-								<motion.span
-									initial={{ opacity: 0, scale: 0.5 }}
-									animate={
-										isCountersVisible
-											? { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 1.1 } }
-											: {}
-									}
-								>
-									100%
-								</motion.span>
-							</motion.div>
-							<p className='text-lg text-teal-700'>Mejores Precios</p>
+						<motion.div
+							className='text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700'
+							variants={itemVariants}
+						>
+							<div className='w-16 h-16 bg-gradient-to-br from-teal-500/20 to-teal-500/5 rounded-xl flex items-center justify-center mx-auto mb-4'>
+								<Target className='text-teal-500' size={32} />
+							</div>
+							<div className='text-4xl font-bold text-teal-600 mb-2'>98%</div>
+							<div className='text-gray-600 dark:text-gray-300 font-medium'>Tasa de Satisfacción</div>
 						</motion.div>
 					</motion.div>
 				</div>
 			</section>
 
+			<motion.div
+				initial={{ opacity: 0 }}
+				whileInView={{ opacity: 1 }}
+				transition={{ duration: 1.5 }}
+				viewport={{ once: true }}
+			>
+				<ProjectsSection />
+			</motion.div>
+
+			<motion.div
+				initial={{ opacity: 0 }}
+				whileInView={{ opacity: 1 }}
+				transition={{ duration: 1.5 }}
+				viewport={{ once: true }}
+			>
+				<TestimonialsSection />
+			</motion.div>
+
 			<Footer />
-		</>
+		</div>
 	)
 }
 
