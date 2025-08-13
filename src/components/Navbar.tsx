@@ -149,8 +149,9 @@ const Navbar = () => {
 							<NavigationMenuList>
 								{navLinks.map((link, index) => (
 									<NavigationMenuItem key={link.title}>
-										<Link to={link.href}>
-											<NavigationMenuLink
+										<NavigationMenuLink asChild>
+											<Link 
+												to={link.href}
 												className={cn(
 													'group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-teal-500/10 hover:text-teal-500 focus:bg-teal-500/10 focus:text-teal-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50',
 													isActive(link.href)
@@ -162,8 +163,8 @@ const Navbar = () => {
 													<link.icon className='w-4 h-4' />
 													<span>{link.title}</span>
 												</motion.div>
-											</NavigationMenuLink>
-										</Link>
+											</Link>
+										</NavigationMenuLink>
 									</NavigationMenuItem>
 								))}
 

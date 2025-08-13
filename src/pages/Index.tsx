@@ -6,15 +6,12 @@ import TestimonialsSection from '@/components/TestimonialsSection'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import {
-	ArrowRight,
 	Award,
 	CheckCircle,
 	Clock,
 	Users,
-	Activity,
 	Briefcase,
 	Building,
-	Shield,
 	Phone,
 	Calendar,
 	Target,
@@ -96,7 +93,7 @@ const Home = () => {
 			/>
 
 			{/* Why Choose Us */}
-			<section 
+			<section
 				id='content-section'
 				className='section-padding relative overflow-hidden bg-white dark:bg-gray-900'
 			>
@@ -134,23 +131,22 @@ const Home = () => {
 						</p>
 					</motion.div>
 
-					<motion.div 
+					<motion.div
 						className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative'
 						initial={{ opacity: 0, scale: 0.95 }}
 						animate={isWhyUsVisible ? { opacity: 1, scale: 1 } : {}}
-						transition={{ duration: 0.6, ease: "easeOut" }}
+						transition={{ duration: 0.6, ease: 'easeOut' }}
 					>
-						{/* Card 1 - Calidad Superior - Estilo Glassmorphism */}
 						<motion.div
-							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
+							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-md'
 							initial={{ opacity: 0, y: 50, rotateY: -15 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
-							transition={{ duration: 0.8, delay: 0.1, type: "spring" }}
+							transition={{ duration: 0.8, delay: 0.1, type: 'spring' }}
 							whileHover={{
 								y: -10,
 								scale: 1.02,
 								rotateY: 5,
-								boxShadow: '0 30px 60px -12px rgba(20, 184, 166, 0.4)',
+								boxShadow: '0 20px 60px -12px rgba(20, 184, 166, 0.4)',
 							}}
 							style={{ transformStyle: 'preserve-3d' }}
 						>
@@ -161,9 +157,9 @@ const Home = () => {
 								whileHover={{ opacity: 1 }}
 								transition={{ duration: 0.3 }}
 							/>
-							
+
 							{/* Icono con efecto de corona */}
-							<motion.div 
+							<motion.div
 								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
 								whileHover={{ rotate: 360 }}
 								transition={{ duration: 0.8 }}
@@ -179,8 +175,8 @@ const Home = () => {
 									transition={{ duration: 2, repeat: Infinity }}
 								/>
 							</motion.div>
-							
-							<motion.h3 
+
+							<motion.h3
 								className='text-xl font-bold mb-3 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent'
 								whileHover={{ scale: 1.05 }}
 							>
@@ -197,7 +193,7 @@ const Home = () => {
 							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
 							initial={{ opacity: 0, y: 50, rotateY: -15 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
-							transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
+							transition={{ duration: 0.8, delay: 0.2, type: 'spring' }}
 							whileHover={{
 								y: -10,
 								scale: 1.02,
@@ -213,9 +209,9 @@ const Home = () => {
 								whileHover={{ opacity: 1 }}
 								transition={{ duration: 0.3 }}
 							/>
-							
+
 							{/* Icono con efecto de corona */}
-							<motion.div 
+							<motion.div
 								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
 								whileHover={{ rotate: 360 }}
 								transition={{ duration: 0.8 }}
@@ -231,8 +227,8 @@ const Home = () => {
 									transition={{ duration: 2, repeat: Infinity }}
 								/>
 							</motion.div>
-							
-							<motion.h3 
+
+							<motion.h3
 								className='text-xl font-bold mb-3 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent'
 								whileHover={{ scale: 1.05 }}
 							>
@@ -249,7 +245,7 @@ const Home = () => {
 							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
 							initial={{ opacity: 0, y: 50, rotateY: -15 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
-							transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
+							transition={{ duration: 0.8, delay: 0.3, type: 'spring' }}
 							whileHover={{
 								y: -10,
 								scale: 1.02,
@@ -265,9 +261,9 @@ const Home = () => {
 								whileHover={{ opacity: 1 }}
 								transition={{ duration: 0.3 }}
 							/>
-							
+
 							{/* Icono con efecto de corona */}
-							<motion.div 
+							<motion.div
 								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
 								whileHover={{ rotate: 360 }}
 								transition={{ duration: 0.8 }}
@@ -283,8 +279,8 @@ const Home = () => {
 									transition={{ duration: 2, repeat: Infinity }}
 								/>
 							</motion.div>
-							
-							<motion.h3 
+
+							<motion.h3
 								className='text-xl font-bold mb-3 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent'
 								whileHover={{ scale: 1.05 }}
 							>
@@ -301,7 +297,7 @@ const Home = () => {
 							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
 							initial={{ opacity: 0, y: 50, rotateY: -15 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
-							transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
+							transition={{ duration: 0.8, delay: 0.4, type: 'spring' }}
 							whileHover={{
 								y: -10,
 								scale: 1.02,
@@ -317,9 +313,9 @@ const Home = () => {
 								whileHover={{ opacity: 1 }}
 								transition={{ duration: 0.3 }}
 							/>
-							
+
 							{/* Icono con efecto de corona */}
-							<motion.div 
+							<motion.div
 								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
 								whileHover={{ rotate: 360 }}
 								transition={{ duration: 0.8 }}
@@ -335,8 +331,8 @@ const Home = () => {
 									transition={{ duration: 2, repeat: Infinity }}
 								/>
 							</motion.div>
-							
-							<motion.h3 
+
+							<motion.h3
 								className='text-xl font-bold mb-3 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent'
 								whileHover={{ scale: 1.05 }}
 							>
@@ -518,7 +514,9 @@ const Home = () => {
 								<Building className='text-teal-500' size={32} />
 							</div>
 							<div className='text-4xl font-bold text-teal-600 mb-2'>500+</div>
-							<div className='text-gray-600 dark:text-gray-300 font-medium'>Proyectos Completados</div>
+							<div className='text-gray-600 dark:text-gray-300 font-medium'>
+								Proyectos Completados
+							</div>
 						</motion.div>
 
 						<motion.div
@@ -529,7 +527,9 @@ const Home = () => {
 								<Users className='text-teal-500' size={32} />
 							</div>
 							<div className='text-4xl font-bold text-teal-600 mb-2'>1000+</div>
-							<div className='text-gray-600 dark:text-gray-300 font-medium'>Clientes Satisfechos</div>
+							<div className='text-gray-600 dark:text-gray-300 font-medium'>
+								Clientes Satisfechos
+							</div>
 						</motion.div>
 
 						<motion.div
@@ -540,7 +540,9 @@ const Home = () => {
 								<Calendar className='text-teal-500' size={32} />
 							</div>
 							<div className='text-4xl font-bold text-teal-600 mb-2'>30+</div>
-							<div className='text-gray-600 dark:text-gray-300 font-medium'>Años de Experiencia</div>
+							<div className='text-gray-600 dark:text-gray-300 font-medium'>
+								Años de Experiencia
+							</div>
 						</motion.div>
 
 						<motion.div
@@ -551,7 +553,9 @@ const Home = () => {
 								<Target className='text-teal-500' size={32} />
 							</div>
 							<div className='text-4xl font-bold text-teal-600 mb-2'>98%</div>
-							<div className='text-gray-600 dark:text-gray-300 font-medium'>Tasa de Satisfacción</div>
+							<div className='text-gray-600 dark:text-gray-300 font-medium'>
+								Tasa de Satisfacción
+							</div>
 						</motion.div>
 					</motion.div>
 				</div>
