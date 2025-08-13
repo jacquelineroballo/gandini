@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 
 interface Project {
   id: number;
@@ -18,35 +19,35 @@ const ProjectsSection = () => {
       id: 1,
       title: "Torre Residencial Montecito",
       category: "Residencial",
-      imageUrl: "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
+      imageUrl: "https://images.unsplash.com/photo-1486718448742-163732cd1544",
       link: "/proyectos/torre-residencial",
     },
     {
       id: 2,
       title: "Centro Comercial Alameda",
       category: "Comercial",
-      imageUrl: "https://images.unsplash.com/photo-1486718448742-163732cd1544",
+      imageUrl: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace",
       link: "/proyectos/centro-comercial",
     },
     {
       id: 3,
       title: "Remodelación Villa Aurora",
       category: "Renovación",
-      imageUrl: "https://images.unsplash.com/photo-1496307653780-42ee777d4833",
+      imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa",
       link: "/proyectos/remodelacion-villa",
     },
     {
       id: 4,
       title: "Complejo Corporativo Vértice",
       category: "Comercial",
-      imageUrl: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace",
+      imageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
       link: "/proyectos/complejo-corporativo",
     },
     {
       id: 5,
       title: "Residencia Los Pinos",
       category: "Residencial",
-      imageUrl: "https://images.unsplash.com/photo-1518005020951-eccb494ad742",
+      imageUrl: "https://images.unsplash.com/photo-1448630360428-65456885c650",
       link: "/proyectos/residencia-pinos",
     },
     {
@@ -66,28 +67,30 @@ const ProjectsSection = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section className="section-padding">
+    <section className="section-padding" aria-labelledby="projects-heading">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
+          <h2 id="projects-heading" className="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
             Proyectos Destacados
-            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-construction-orange-500"></span>
+            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-teal-500"></span>
           </h2>
-          <p className="text-construction-gray-600 max-w-3xl mx-auto">
+          <p className="text-gray-600 max-w-3xl mx-auto">
             Explora nuestra galería de proyectos exitosos que demuestran nuestra 
             experiencia y compromiso con la calidad y la innovación.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div className="flex flex-wrap justify-center gap-3 mb-10" role="tablist">
           {filters.map(filter => (
             <Button
               key={filter}
               variant={activeFilter === filter ? "default" : "outline"}
               className={activeFilter === filter 
-                ? "bg-construction-orange-500 hover:bg-construction-orange-600" 
-                : "border-construction-gray-300"}
+                ? "bg-teal-500 hover:bg-teal-600" 
+                : "border-gray-300"}
               onClick={() => setActiveFilter(filter)}
+              role="tab"
+              aria-selected={activeFilter === filter}
             >
               {filter}
             </Button>
@@ -100,7 +103,7 @@ const ProjectsSection = () => {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-construction-gray-100">
                 {/* Imagen con overlay */}
                 <div className="relative h-64 overflow-hidden">
-                  <img
+                  <OptimizedImage
                     src={project.imageUrl}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -144,7 +147,7 @@ const ProjectsSection = () => {
 
         <div className="text-center mt-12">
           <Link to="/proyectos">
-            <Button className="bg-construction-blue-600 hover:bg-construction-blue-700">
+            <Button className="bg-teal-600 hover:bg-teal-700">
               Ver Todos los Proyectos <ArrowRight className="ml-2" size={18} />
             </Button>
           </Link>

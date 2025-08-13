@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
@@ -15,7 +16,7 @@ interface HeroProps {
 const ModernHero = ({
 	title,
 	subtitle,
-	backgroundImage = 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+	backgroundImage = 'https://images.unsplash.com/photo-1617806118233-18e1de247200',
 	buttonText = 'Saber más',
 	buttonLink = '/servicios',
 }: HeroProps) => {
@@ -27,7 +28,7 @@ const ModernHero = ({
 	}
 
 	return (
-		<div className='relative min-h-screen flex items-center justify-center overflow-hidden'>
+		<section className='relative min-h-screen flex items-center justify-center overflow-hidden' aria-label="Hero principal">
 			{/* Background Image with Overlay */}
 			<div className='absolute inset-0 z-0'>
 				<motion.div
@@ -36,6 +37,7 @@ const ModernHero = ({
 					transition={{ duration: 1.5, ease: 'easeOut' }}
 					className='absolute inset-0'
 				>
+					<OptimizedImage
 					<OptimizedImage
 						src={backgroundImage}
 						alt='Construction background'
@@ -190,11 +192,12 @@ const ModernHero = ({
 					viewBox='0 0 1200 120'
 					preserveAspectRatio='none'
 					xmlns='http://www.w3.org/2000/svg'
+					aria-hidden="true"
 				>
 					<path d='M1200 120L0 16.48V0h1200v120z' fill='currentColor'></path>
 				</svg>
 			</div>
-		</div>
+		</section>
 	)
 }
 
