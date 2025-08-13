@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
@@ -28,7 +27,10 @@ const ModernHero = ({
 	}
 
 	return (
-		<section className='relative min-h-screen flex items-center justify-center overflow-hidden' aria-label="Hero principal">
+		<section
+			className='relative min-h-screen flex items-center justify-center overflow-hidden'
+			aria-label='Hero principal'
+		>
 			{/* Background Image with Overlay */}
 			<div className='absolute inset-0 z-0'>
 				<motion.div
@@ -37,7 +39,6 @@ const ModernHero = ({
 					transition={{ duration: 1.5, ease: 'easeOut' }}
 					className='absolute inset-0'
 				>
-					<OptimizedImage
 					<OptimizedImage
 						src={backgroundImage}
 						alt='Construction background'
@@ -192,7 +193,7 @@ const ModernHero = ({
 					viewBox='0 0 1200 120'
 					preserveAspectRatio='none'
 					xmlns='http://www.w3.org/2000/svg'
-					aria-hidden="true"
+					aria-hidden='true'
 				>
 					<path d='M1200 120L0 16.48V0h1200v120z' fill='currentColor'></path>
 				</svg>
