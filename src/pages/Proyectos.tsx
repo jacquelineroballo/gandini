@@ -208,7 +208,7 @@ const Proyectos = () => {
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                   <div className="flex items-center justify-between">
                     <span className="text-construction-gray-600">{project.category}</span>
-                    <span className="text-construction-orange-500 hover:text-construction-orange-600 flex items-center font-medium">
+                    <span className="text-construction-teal-500 hover:text-construction-teal-600 flex items-center font-medium">
                       Ver Detalles <ArrowRight className="ml-1" size={18} />
                     </span>
                   </div>
@@ -289,7 +289,7 @@ const Proyectos = () => {
               <div className="flex justify-center mt-6">
                 <Button 
                   onClick={closeProjectModal}
-                  className="bg-construction-orange-500 hover:bg-construction-orange-600"
+                  className="bg-construction-teal-500 hover:bg-construction-teal-600"
                 >
                   Cerrar
                 </Button>
@@ -304,8 +304,8 @@ const Proyectos = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
-              Nuestro Impacto en Números
-              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-construction-orange-500"></span>
+              Nuestros Proyectos Destacados
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-construction-teal-500"></span>
             </h2>
             <p className="text-white/80 max-w-3xl mx-auto">
               Resultados tangibles que demuestran nuestro compromiso con la excelencia en cada proyecto.

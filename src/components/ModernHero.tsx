@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ChevronDown, Briefcase } from 'lucide-react'
+import { ArrowRight, Briefcase } from 'lucide-react'
+import { OptimizedImage } from '@/components/ui/OptimizedImage'
 
 interface HeroProps {
 	title: string
@@ -35,10 +36,12 @@ const ModernHero = ({
 					transition={{ duration: 1.5, ease: 'easeOut' }}
 					className='absolute inset-0'
 				>
-					<img
+					<OptimizedImage
 						src={backgroundImage}
 						alt='Construction background'
 						className='w-full h-full object-cover object-center'
+						priority={true}
+						fallbackSrc='https://images.unsplash.com/photo-1486718448742-163732cd1544?q=80&w=2832&auto=format&fit=crop'
 					/>
 					<div className='absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/50 to-gray-900/80' />
 				</motion.div>
@@ -46,9 +49,10 @@ const ModernHero = ({
 				{/* Animated patterns */}
 				<div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22%23fff%22 fill-opacity=%220.05%22 fill-rule=%22evenodd%22%3E%3Ccircle cx=%223%22 cy=%223%22 r=%223%22/%3E%3Ccircle cx=%2213%22 cy=%2213%22 r=%223%22/%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
 
-				{/* Moving light effect */}
+				{/* Moving light effect - Optimizado para mejor rendimiento */}
 				<motion.div
 					className='absolute -top-[30%] -left-[10%] w-[500px] h-[500px] bg-teal-500/20 rounded-full blur-[100px]'
+					style={{ willChange: 'transform' }}
 					animate={{
 						x: [0, 30, 0],
 						y: [0, 20, 0],
@@ -62,6 +66,7 @@ const ModernHero = ({
 
 				<motion.div
 					className='absolute -bottom-[30%] -right-[10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px]'
+					style={{ willChange: 'transform' }}
 					animate={{
 						x: [0, -30, 0],
 						y: [0, -20, 0],
@@ -175,7 +180,6 @@ const ModernHero = ({
 							</Button>
 						</Link>
 					</motion.div>
-
 				</div>
 			</div>
 

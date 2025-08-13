@@ -31,8 +31,8 @@ const Contacto = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="w-16 h-16 bg-construction-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="text-construction-orange-500" size={32} />
+              <div className="w-16 h-16 bg-construction-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="text-construction-teal-500" size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">Dirección</h3>
               <p className="text-construction-gray-600">
@@ -42,8 +42,8 @@ const Contacto = () => {
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="w-16 h-16 bg-construction-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Phone className="text-construction-orange-500" size={32} />
+              <div className="w-16 h-16 bg-construction-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Phone className="text-construction-teal-500" size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">Teléfono</h3>
               <p className="text-construction-gray-600">
@@ -53,8 +53,8 @@ const Contacto = () => {
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="w-16 h-16 bg-construction-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Mail className="text-construction-orange-500" size={32} />
+              <div className="w-16 h-16 bg-construction-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Mail className="text-construction-teal-500" size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">Email</h3>
               <p className="text-construction-gray-600">
@@ -64,8 +64,8 @@ const Contacto = () => {
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="w-16 h-16 bg-construction-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="text-construction-orange-500" size={32} />
+              <div className="w-16 h-16 bg-construction-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="text-construction-teal-500" size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">Horario</h3>
               <p className="text-construction-gray-600">
@@ -84,7 +84,7 @@ const Contacto = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6 relative">
                 Envíanos un Mensaje
-                <span className="absolute -bottom-2 left-0 w-20 h-1 bg-construction-orange-500"></span>
+                <span className="absolute -bottom-2 left-0 w-20 h-1 bg-construction-teal-500"></span>
               </h2>
               <p className="text-construction-gray-600 mb-8">
                 Completa el formulario a continuación y nos pondremos en contacto contigo
@@ -97,7 +97,7 @@ const Contacto = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6 relative">
                 Nuestra Ubicación
-                <span className="absolute -bottom-2 left-0 w-20 h-1 bg-construction-orange-500"></span>
+                <span className="absolute -bottom-2 left-0 w-20 h-1 bg-construction-teal-500"></span>
               </h2>
               <p className="text-construction-gray-600 mb-8">
                 Visita nuestras oficinas para conocer más sobre nuestros servicios y ver ejemplos de nuestro trabajo.
@@ -107,7 +107,7 @@ const Contacto = () => {
                 {/* Map placeholder - In a real project, you would integrate Google Maps or a similar service */}
                 <div className="w-full h-full flex items-center justify-center bg-construction-gray-300 border">
                   <div className="text-center">
-                    <MapPin size={48} className="mx-auto mb-3 text-construction-orange-500" />
+                    <MapPin size={48} className="mx-auto mb-3 text-construction-teal-500" />
                     <p className="text-xl font-bold">Mapa de Ubicación</p>
                     <p className="text-construction-gray-600">Aquí iría un mapa interactivo</p>
                   </div>
@@ -124,7 +124,7 @@ const Contacto = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
               Preguntas Frecuentes
-              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-construction-orange-500"></span>
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-construction-teal-500"></span>
             </h2>
             <p className="text-construction-gray-600 max-w-3xl mx-auto">
               Respuestas a las dudas más comunes sobre nuestros servicios.

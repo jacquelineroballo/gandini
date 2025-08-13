@@ -1,39 +1,63 @@
+import { Suspense, lazy } from 'react'
+import { Toaster } from '@/components/ui/toaster'
+import { Toaster as Sonner } from '@/components/ui/sonner'
+import { TooltipProvider } from '@/components/ui/tooltip'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+import { ThemeProvider } from '@/components/theme-provider'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
+import { PageSkeleton } from '@/components/ui/PageSkeleton'
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Servicios from "./pages/Servicios";
-import Proyectos from "./pages/Proyectos";
-import Contacto from "./pages/Contacto";
-import NotFound from "./pages/NotFound";
-import { AnimatePresence } from "framer-motion";
-import { ThemeProvider } from "@/components/theme-provider";
+// Lazy loading de páginas para code splitting
+const Index = lazy(() => import('./pages/Index'))
+const Servicios = lazy(() => import('./pages/Servicios'))
+const Proyectos = lazy(() => import('./pages/Proyectos'))
+const Contacto = lazy(() => import('./pages/Contacto'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
-const queryClient = new QueryClient();
+// Configuración optimizada de React Query
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			staleTime: 5 * 60 * 1000, // 5 minutos
+			gcTime: 10 * 60 * 1000, // 10 minutos
+			retry: (failureCount, error: unknown) => {
+				if ((error as { status?: number })?.status === 404) return false
+				return failureCount < 3
+			},
+			refetchOnWindowFocus: false,
+		},
+		mutations: {
+			retry: 1,
+		},
+	},
+})
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/servicios" element={<Servicios />} />
-              <Route path="/proyectos" element={<Proyectos />} />
-              <Route path="/contacto" element={<Contacto />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </AnimatePresence>
-        </BrowserRouter>
-      </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
-);
+	<ErrorBoundary>
+		<QueryClientProvider client={queryClient}>
+			<ThemeProvider>
+				<TooltipProvider>
+					<Toaster />
+					<Sonner />
+					<BrowserRouter>
+						<AnimatePresence mode='wait'>
+							<Suspense fallback={<PageSkeleton />}>
+								<Routes>
+									<Route path='/' element={<Index />} />
+									<Route path='/servicios' element={<Servicios />} />
+									<Route path='/proyectos' element={<Proyectos />} />
+									<Route path='/contacto' element={<Contacto />} />
+									<Route path='*' element={<NotFound />} />
+								</Routes>
+							</Suspense>
+						</AnimatePresence>
+					</BrowserRouter>
+				</TooltipProvider>
+			</ThemeProvider>
+		</QueryClientProvider>
+	</ErrorBoundary>
+)
 
-export default App;
+export default App

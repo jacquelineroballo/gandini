@@ -95,32 +95,47 @@ const ProjectsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map(project => (
-            <Link key={project.id} to={project.link} className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg hover-scale">
+          {filteredProjects.map((project, index) => (
+            <Link key={project.id} to={project.link} className="group block">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-construction-gray-100">
+                {/* Imagen con overlay */}
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div className="p-6 w-full">
-                      <span className="inline-block bg-construction-orange-500 text-white text-sm px-3 py-1 rounded mb-2">
-                        {project.category}
-                      </span>
-                      <h3 className="text-white text-xl font-bold">{project.title}</h3>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <div className="flex items-center justify-between">
-                    <span className="text-construction-gray-600">{project.category}</span>
-                    <span className="text-construction-orange-500 group-hover:text-construction-orange-600 flex items-center font-medium">
-                      Ver Detalles <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={18} />
+                  {/* Overlay con gradiente */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Badge de categoría */}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-construction-teal-500/90 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/20">
+                      {project.category}
                     </span>
                   </div>
+                  
+                  {/* Icono de enlace */}
+                  <div className="absolute bottom-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
+                </div>
+                
+                {/* Contenido */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-construction-gray-800 mb-2 group-hover:text-construction-teal-600 transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-construction-gray-600 text-sm">
+                    Ver detalles del proyecto
+                  </p>
+                </div>
+                
+                {/* Barra de progreso decorativa */}
+                <div className="h-1 bg-construction-gray-100">
+                  <div className="h-full bg-gradient-to-r from-construction-teal-500 to-construction-blue-500 w-0 group-hover:w-full transition-all duration-700 ease-out"></div>
                 </div>
               </div>
             </Link>

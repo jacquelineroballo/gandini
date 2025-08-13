@@ -130,13 +130,13 @@ const Servicios = () => {
 									<ul className='space-y-3 mb-8'>
 										{service.features.map((feature, idx) => (
 											<li key={idx} className='flex items-start'>
-												<CheckCircle className='text-construction-orange-500 mr-3 mt-1' size={20} />
+												<CheckCircle className='text-construction-teal-500 mr-3 mt-1' size={20} />
 												<span>{feature}</span>
 											</li>
 										))}
 									</ul>
 									<Link to='/contacto'>
-										<Button className='bg-construction-orange-500 hover:bg-construction-orange-600 flex items-center'>
+										<Button className='bg-construction-teal-500 hover:bg-construction-teal-600 flex items-center'>
 											Consultar Ahora <ArrowRight className='ml-2' size={18} />
 										</Button>
 									</Link>
@@ -153,7 +153,7 @@ const Servicios = () => {
 					<div className='text-center mb-16'>
 						<h2 className='text-3xl md:text-4xl font-bold mb-4 relative inline-block'>
 							Nuestro Proceso
-							<span className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-construction-orange-500'></span>
+							<span className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-construction-teal-500'></span>
 						</h2>
 						<p className='text-construction-gray-600 max-w-3xl mx-auto'>
 							Una metodología clara y eficiente que garantiza el éxito en cada etapa del proyecto.
@@ -163,7 +163,7 @@ const Servicios = () => {
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
 						<div className='relative'>
 							<div className='bg-white p-8 rounded-lg shadow-lg text-center h-full hover-scale'>
-								<div className='w-12 h-12 bg-construction-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
+								<div className='w-12 h-12 bg-construction-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
 									1
 								</div>
 								<h3 className='text-xl font-bold mb-3'>Consulta Inicial</h3>
@@ -176,7 +176,7 @@ const Servicios = () => {
 
 						<div className='relative'>
 							<div className='bg-white p-8 rounded-lg shadow-lg text-center h-full hover-scale'>
-								<div className='w-12 h-12 bg-construction-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
+								<div className='w-12 h-12 bg-construction-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
 									2
 								</div>
 								<h3 className='text-xl font-bold mb-3'>Planificación y Diseño</h3>
@@ -189,7 +189,7 @@ const Servicios = () => {
 
 						<div className='relative'>
 							<div className='bg-white p-8 rounded-lg shadow-lg text-center h-full hover-scale'>
-								<div className='w-12 h-12 bg-construction-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
+								<div className='w-12 h-12 bg-construction-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
 									3
 								</div>
 								<h3 className='text-xl font-bold mb-3'>Construcción</h3>
@@ -202,7 +202,7 @@ const Servicios = () => {
 
 						<div>
 							<div className='bg-white p-8 rounded-lg shadow-lg text-center h-full hover-scale'>
-								<div className='w-12 h-12 bg-construction-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
+								<div className='w-12 h-12 bg-construction-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
 									4
 								</div>
 								<h3 className='text-xl font-bold mb-3'>Entrega Final</h3>

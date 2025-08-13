@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 
 import type { Config } from "tailwindcss";
 
@@ -65,6 +66,7 @@ export default {
 				},
 				// Construction theme colors
 				construction: {
+					'gray-50': '#fafafa',
 					'gray-100': '#f5f5f5',
 					'gray-200': '#e5e5e5',
 					'gray-300': '#d4d4d4',
@@ -74,12 +76,27 @@ export default {
 					'gray-700': '#404040',
 					'gray-800': '#262626',
 					'gray-900': '#171717',
+					
+					// Paleta azul profesional
+					'blue-50': '#eff6ff',
+					'blue-100': '#dbeafe',
 					'blue-500': '#0284c7',
 					'blue-600': '#0369a1',
 					'blue-700': '#0c4a6e',
+					'blue-800': '#075985',
+					'blue-900': '#0c4a6e',
+					
+					// Paleta teal/verde principal (colores de marca)
+					'teal-50': '#f0fdfa',
+					'teal-100': '#ccfbf1',
+					'teal-200': '#99f6e4',
+					'teal-300': '#5eead4',
 					'teal-400': '#2dd4bf',
 					'teal-500': '#14b8a6',
 					'teal-600': '#0d9488',
+					'teal-700': '#0f766e',
+					'teal-800': '#115e59',
+					'teal-900': '#134e4a',
 				}
 			},
 			fontFamily: {
