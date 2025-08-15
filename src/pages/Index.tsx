@@ -494,7 +494,7 @@ const Home = () => {
 							Nuestros Números
 						</span>
 						<h2 className='text-3xl md:text-4xl font-bold mb-4 relative inline-block dark:text-white'>
-							Resultados que Hablan por Sí Solos
+							Resultados que hablan por sí solos
 							<motion.span
 								className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-teal-500'
 								initial={{ width: 0 }}

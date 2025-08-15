@@ -51,7 +51,6 @@ const ServicesSection = () => {
 
 	return (
 		<section className='section-padding bg-gradient-to-br from-construction-gray-50 to-construction-teal-50/30 relative overflow-hidden'>
-			{/* Efectos de fondo simplificados para evitar parpadeo */}
 			<div className='absolute inset-0 overflow-hidden'>
 				<div className='absolute top-20 left-10 w-32 h-32 bg-construction-teal-400/5 rounded-full blur-xl'></div>
 				<div className='absolute bottom-20 right-10 w-48 h-48 bg-construction-blue-400/5 rounded-full blur-xl'></div>
@@ -78,7 +77,6 @@ const ServicesSection = () => {
 					</p>
 				</motion.div>
 
-				{/* Grid optimizado para 4 cards en una fila */}
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6'>
 					{services.map((service, index) => (
 						<motion.div
@@ -92,7 +90,6 @@ const ServicesSection = () => {
 							viewport={{ once: true }}
 							whileHover={{ scale: 1.01 }}
 						>
-							{/* Efecto de brillo simplificado sin parpadeo */}
 							<div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out'></div>
 
 							<div
@@ -107,7 +104,7 @@ const ServicesSection = () => {
 										<div className='text-white scale-75'>{service.icon}</div>
 									</div>
 								</div>
-								{/* Elementos decorativos más pequeños */}
+
 								<div className='absolute top-3 right-3 w-4 h-4 border border-white/20 rounded-full'></div>
 								<div className='absolute bottom-3 left-3 w-2 h-2 bg-white/10 rounded-full'></div>
 
@@ -169,7 +166,7 @@ const ServicesSection = () => {
 								'py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200'
 							}
 						>
-							Consulta Personalizada
+							ESCRIBINOS
 							<ArrowRight className='w-4 h-4 ml-2' />
 						</Link>
 					</div>
