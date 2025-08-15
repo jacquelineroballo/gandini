@@ -138,7 +138,7 @@ const Home = () => {
 						transition={{ duration: 0.6, ease: 'easeOut' }}
 					>
 						<motion.div
-							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-md'
+							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-6 md:p-5 lg:p-6 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-md'
 							initial={{ opacity: 0, y: 50, rotateY: -15 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
 							transition={{ duration: 0.8, delay: 0.1, type: 'spring' }}
@@ -160,7 +160,7 @@ const Home = () => {
 
 							{/* Icono con efecto de corona */}
 							<motion.div
-								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
+								className='w-16 h-16 md:w-18 lg:w-20 md:h-18 lg:h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-5 lg:mb-6 relative shadow-2xl'
 								whileHover={{ rotate: 360 }}
 								transition={{ duration: 0.8 }}
 							>
@@ -190,7 +190,7 @@ const Home = () => {
 
 						{/* Card 2 - Equipo Profesional - Mismo Estilo Glassmorphism */}
 						<motion.div
-							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
+							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-6 md:p-5 lg:p-6 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
 							initial={{ opacity: 0, y: 50, rotateY: -15 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
 							transition={{ duration: 0.8, delay: 0.2, type: 'spring' }}
@@ -212,7 +212,7 @@ const Home = () => {
 
 							{/* Icono con efecto de corona */}
 							<motion.div
-								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
+								className='w-16 h-16 md:w-18 lg:w-20 md:h-18 lg:h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-5 lg:mb-6 relative shadow-2xl'
 								whileHover={{ rotate: 360 }}
 								transition={{ duration: 0.8 }}
 							>
@@ -242,7 +242,7 @@ const Home = () => {
 
 						{/* Card 3 - Entregas a Tiempo - Mismo Estilo Glassmorphism */}
 						<motion.div
-							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
+							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-6 md:p-5 lg:p-6 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
 							initial={{ opacity: 0, y: 50, rotateY: -15 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
 							transition={{ duration: 0.8, delay: 0.3, type: 'spring' }}
@@ -264,7 +264,7 @@ const Home = () => {
 
 							{/* Icono con efecto de corona */}
 							<motion.div
-								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
+								className='w-16 h-16 md:w-18 lg:w-20 md:h-18 lg:h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-5 lg:mb-6 relative shadow-2xl'
 								whileHover={{ rotate: 360 }}
 								transition={{ duration: 0.8 }}
 							>
@@ -294,7 +294,7 @@ const Home = () => {
 
 						{/* Card 4 - Innovación - Mismo Estilo Glassmorphism */}
 						<motion.div
-							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
+							className='relative backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 rounded-2xl p-6 md:p-5 lg:p-6 text-center border border-white/20 dark:border-gray-700/30 overflow-hidden group shadow-xl'
 							initial={{ opacity: 0, y: 50, rotateY: -15 }}
 							animate={isWhyUsVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
 							transition={{ duration: 0.8, delay: 0.4, type: 'spring' }}
@@ -316,7 +316,7 @@ const Home = () => {
 
 							{/* Icono con efecto de corona */}
 							<motion.div
-								className='w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 relative shadow-2xl'
+								className='w-16 h-16 md:w-18 lg:w-20 md:h-18 lg:h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-5 lg:mb-6 relative shadow-2xl'
 								whileHover={{ rotate: 360 }}
 								transition={{ duration: 0.8 }}
 							>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, House, Building, Hammer, Blocks, Palette, Users } from 'lucide-react'
+import { ArrowRight, Hammer, Blocks, Palette, Users } from 'lucide-react'
 
 interface Service {
 	id: number
@@ -15,51 +15,35 @@ const ServicesSection = () => {
 	const services: Service[] = [
 		{
 			id: 1,
-			title: 'Construcciones Residenciales',
+			title: 'Renovaciones',
 			description:
-				'Construimos viviendas de alta calidad con diseños personalizados que se adaptan a tus necesidades, estilo de vida y visión única. Creamos espacios funcionales, estéticos y duraderos pensados para vos.',
-			icon: <House className='w-8 h-8' />,
-			features: ['Diseños personalizados', 'Materiales premium', 'Entrega puntual'],
+				'Transformamos espacios para darles nueva vida, funcionalidad y estética moderna.',
+			icon: <Hammer className='w-8 h-8' />,
+			features: ['Modernización', 'Mejora de valor'],
 		},
 		{
 			id: 2,
-			title: 'Construcciones Comerciales',
+			title: 'Albañilería',
 			description:
-				'Desarrollamos espacios y realizamos renovaciones eficientes, atractivos y funcionales que impulsan el éxito de tu negocio, fortalecen tu identidad de marca y mejoran la experiencia de tus clientes.',
-			icon: <Building className='w-8 h-8' />,
-			features: ['Espacios funcionales', 'Diseño corporativo', 'Optimización de costos'],
+				'Trabajos de albañilería con precisión para proyectos que requieren detalles especiales.',
+			icon: <Blocks className='w-8 h-8' />,
+			features: ['Mantenimiento', 'Reparaciones de toda índole'],
 		},
 		{
 			id: 3,
-			title: 'Renovaciones y Mantenimiento',
+			title: 'Pintura',
 			description:
-				'Transformamos espacios para darles nueva vida, funcionalidad y estética moderna. Renovamos cada ambiente con soluciones creativas, materiales de calidad y un enfoque personalizado que potencia su uso y valor.',
-			icon: <Hammer className='w-8 h-8' />,
-			features: ['Modernización', 'Mejora de valor', 'Mínima interrupción'],
+				'Combinamos diferentes técnicas y materiales para brindar durabilidad y estética.',
+			icon: <Palette className='w-8 h-8' />,
+			features: ['Atención al detalle', 'Acabados profesionales'],
 		},
 		{
 			id: 4,
-			title: 'Albañilería Especializada',
-			description:
-				'Trabajos de albañilería con precisión artesanal para proyectos que requieren detalles especiales y un acabado único.',
-			icon: <Blocks className='w-8 h-8' />,
-			features: ['Técnicas tradicionales', 'Acabados artesanales', 'Durabilidad garantizada'],
-		},
-		{
-			id: 5,
-			title: 'Pintura',
-			description:
-				'Combinamos diferentes técnicas y materiales para brindar durabilidad y estética, transformando tus espacios.',
-			icon: <Palette className='w-8 h-8' />,
-			features: ['Técnicas avanzadas', 'Colores personalizados', 'Acabados profesionales'],
-		},
-		{
-			id: 6,
 			title: 'Consultoría',
 			description:
-				'Asesoramiento experto en todas las etapas de tu proyecto constructivo para tomar las mejores decisiones.',
+				'Asesoramiento experto en todas las etapas de tu proyecto para tomar decisiones.',
 			icon: <Users className='w-8 h-8' />,
-			features: ['Análisis técnico', 'Optimización de recursos', 'Seguimiento completo'],
+			features: ['Análisis técnico', 'Optimización de recursos'],
 		},
 	]
 
@@ -67,10 +51,11 @@ const ServicesSection = () => {
 
 	return (
 		<section className='section-padding bg-gradient-to-br from-construction-gray-50 to-construction-teal-50/30 relative overflow-hidden'>
+			{/* Efectos de fondo simplificados para evitar parpadeo */}
 			<div className='absolute inset-0 overflow-hidden'>
-				<div className='absolute top-20 left-10 w-32 h-32 bg-construction-teal-400/10 rounded-full blur-xl animate-pulse'></div>
-				<div className='absolute bottom-20 right-10 w-48 h-48 bg-construction-blue-400/10 rounded-full blur-xl animate-pulse delay-1000'></div>
-				<div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/20 rounded-full blur-3xl'></div>
+				<div className='absolute top-20 left-10 w-32 h-32 bg-construction-teal-400/5 rounded-full blur-xl'></div>
+				<div className='absolute bottom-20 right-10 w-48 h-48 bg-construction-blue-400/5 rounded-full blur-xl'></div>
+				<div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl'></div>
 			</div>
 
 			<div className='container mx-auto relative z-10'>
@@ -78,7 +63,7 @@ const ServicesSection = () => {
 					className='text-center mb-16'
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8 }}
+					transition={{ duration: 0.6 }}
 					viewport={{ once: true }}
 				>
 					<div className='inline-block'>
@@ -93,70 +78,69 @@ const ServicesSection = () => {
 					</p>
 				</motion.div>
 
-				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+				{/* Grid optimizado para 4 cards en una fila */}
+				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6'>
 					{services.map((service, index) => (
 						<motion.div
 							key={service.id}
-							className='group relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-200 hover:-translate-y-1 border border-white/50 cursor-pointer'
+							className='group relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-150 hover:-translate-y-1 border border-white/50 cursor-pointer'
 							onMouseEnter={() => setHoveredIndex(index)}
 							onMouseLeave={() => setHoveredIndex(null)}
-							initial={{ opacity: 0, y: 50 }}
+							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6, delay: index * 0.1 }}
+							transition={{ duration: 0.4, delay: index * 0.1 }}
 							viewport={{ once: true }}
 							whileHover={{ scale: 1.01 }}
 						>
-							{/* Efecto de brillo simplificado */}
-							<div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out'></div>
+							{/* Efecto de brillo simplificado sin parpadeo */}
+							<div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out'></div>
 
 							<div
-								className={`h-48 bg-gradient-to-br transition-colors duration-200 flex items-center justify-center relative overflow-hidden ${
+								className={`h-32 bg-gradient-to-br transition-colors duration-150 flex items-center justify-center relative overflow-hidden ${
 									hoveredIndex === index
 										? 'from-construction-teal-500 via-construction-teal-600 to-construction-blue-600'
 										: 'from-construction-teal-600 via-construction-teal-700 to-construction-blue-700'
 								}`}
 							>
 								<div className='relative z-10'>
-									<div
-										className={`w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center transition-all duration-200 group-hover:scale-105 border border-white/30`}
-									>
-										<div className='text-white'>{service.icon}</div>
+									<div className='w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center transition-all duration-150 group-hover:scale-105 border border-white/30'>
+										<div className='text-white scale-75'>{service.icon}</div>
 									</div>
 								</div>
-								<div className='absolute top-4 right-4 w-8 h-8 border-2 border-white/30 rounded-full animate-pulse'></div>
-								<div className='absolute bottom-4 left-4 w-4 h-4 bg-white/20 rounded-full animate-bounce'></div>
+								{/* Elementos decorativos más pequeños */}
+								<div className='absolute top-3 right-3 w-4 h-4 border border-white/20 rounded-full'></div>
+								<div className='absolute bottom-3 left-3 w-2 h-2 bg-white/10 rounded-full'></div>
 
-								<div className='absolute top-4 left-4'>
-									<span className='text-white/60 text-sm font-bold'>0{service.id}</span>
+								<div className='absolute top-3 left-3'>
+									<span className='text-white/60 text-xs font-bold'>0{service.id}</span>
 								</div>
 							</div>
-							
-							<div className='p-8 relative'>
-								<h3 className='text-xl font-bold mb-4 text-construction-gray-800 group-hover:text-construction-teal-600 transition-colors duration-200'>
+							<div className='p-4 relative'>
+								<h3 className='text-lg font-bold mb-2 text-construction-gray-800 group-hover:text-construction-teal-600 transition-colors duration-150'>
 									{service.title}
 								</h3>
-								<p className='text-construction-gray-600 leading-relaxed mb-6'>
+								<p className='text-construction-gray-600 leading-relaxed mb-3 text-sm line-clamp-3'>
 									{service.description}
 								</p>
-								<ul className='space-y-2 mb-6'>
-									{service.features.map((feature, idx) => (
-										<li key={idx} className='flex items-center text-sm text-construction-gray-600'>
-											<div className='w-1.5 h-1.5 bg-construction-teal-500 rounded-full mr-3'></div>
+								<ul className='space-y-1 mb-3'>
+									{service.features.slice(0, 2).map((feature, idx) => (
+										<li key={idx} className='flex items-center text-xs text-construction-gray-600'>
+											<div className='w-1 h-1 bg-construction-teal-500 rounded-full mr-2'></div>
 											{feature}
 										</li>
 									))}
 								</ul>
 								<Link
 									to='/contacto'
-									className='inline-flex items-center text-construction-teal-600 font-semibold group-hover:text-construction-teal-700 transition-all duration-200'
+									className='inline-flex items-center text-construction-teal-600 font-semibold group-hover:text-construction-teal-700 transition-all duration-150 text-sm'
 								>
-									<span>Más información</span>
-									<ArrowRight className='w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-200' />
+									<span>Más info</span>
+									<ArrowRight className='w-3 h-3 ml-1 transform group-hover:translate-x-1 transition-transform duration-150' />
 								</Link>
 							</div>
-							
+
 							<div
-								className={`h-1 bg-gradient-to-r transition-colors duration-200 ${
+								className={`h-1 bg-gradient-to-r transition-colors duration-150 ${
 									hoveredIndex === index
 										? 'from-construction-teal-400 to-construction-blue-500'
 										: 'from-construction-teal-500 to-construction-blue-600'
@@ -165,20 +149,25 @@ const ServicesSection = () => {
 						</motion.div>
 					))}
 				</div>
+
 				<motion.div
 					className='text-center mt-16'
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8, delay: 0.3 }}
+					transition={{ duration: 0.6, delay: 0.2 }}
 					viewport={{ once: true }}
 				>
-					<div className='bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-white/50 inline-block'>
-						<h3 className='text-2xl md:text-4xl font-bold bg-gradient-to-r from-construction-teal-600 to-construction-blue-600 bg-clip-text text-transparent mb-10'>
+					<div className='bg-white/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/50 inline-block'>
+						<h3 className='text-2xl md:text-4xl font-bold bg-gradient-to-r from-construction-teal-600 to-construction-blue-600 bg-clip-text text-transparent mb-6'>
 							Contactanos para servicios personalizados y soluciones a medida.
 						</h3>
 						<Link
 							to='/contacto'
-							className='inline-flex items-center bg-gradient-to-r from-construction-teal-500 to-construction-teal-600 hover:from-construction-teal-600 hover:to-construction-teal-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300'
+							className={
+								'inline-flex items-center bg-gradient-to-r from-construction-teal-500 to-construction-blue-600 ' +
+								'hover:from-construction-teal-600 hover:to-construction-teal-700 text-white font-semibold ' +
+								'py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200'
+							}
 						>
 							Consulta Personalizada
 							<ArrowRight className='w-4 h-4 ml-2' />

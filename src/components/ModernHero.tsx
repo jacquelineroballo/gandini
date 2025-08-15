@@ -102,7 +102,7 @@ const ModernHero = ({
 					</motion.div>
 
 					<motion.h1
-						className='text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight'
+						className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight'
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.2 }}
@@ -133,7 +133,7 @@ const ModernHero = ({
 					</motion.h1>
 
 					<motion.p
-						className='text-lg md:text-xl text-gray-100 mb-10 max-w-3xl mx-auto'
+						className='text-base sm:text-lg md:text-xl text-gray-100 mb-6 md:mb-8 lg:mb-10 max-w-2xl lg:max-w-3xl mx-auto px-4'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.8, delay: 0.5 }}
@@ -142,23 +142,23 @@ const ModernHero = ({
 					</motion.p>
 
 					<motion.div
-						className='flex flex-col sm:flex-row gap-4 justify-center'
+						className='flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4'
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.7 }}
 					>
 						<Link to={buttonLink}>
 							<Button
-								className='bg-teal-500 hover:bg-teal-600 text-white px-8 py-6 text-lg shadow-xl btn-glow relative overflow-hidden group'
+								className='bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-4 md:py-6 text-base md:text-lg shadow-xl btn-glow relative overflow-hidden group w-full sm:w-auto'
 								size='lg'
 							>
-								<span className='relative z-10 flex items-center'>
+								<span className='relative z-10 flex items-center justify-center'>
 									{buttonText}
 									<motion.span
 										animate={{ x: [0, 5, 0] }}
 										transition={{ duration: 1.5, repeat: Infinity }}
 									>
-										<ArrowRight className='ml-2 h-5 w-5' />
+										<ArrowRight className='ml-2 h-4 w-4 md:h-5 md:w-5' />
 									</motion.span>
 								</span>
 								<span className='absolute inset-0 w-full h-full bg-gradient-to-r from-teal-600 to-teal-500 group-hover:opacity-90 transition-opacity' />
@@ -176,7 +176,7 @@ const ModernHero = ({
 						<Link to='/proyectos'>
 							<Button
 								variant='outline'
-								className='dark:bg-white dark:text-teal-700 border-white/70 text-white hover:bg-white/10 hover:text-white px-8 py-6 text-lg'
+								className='dark:bg-white dark:text-teal-700 border-white/70 text-white hover:bg-white/10 hover:text-white px-6 md:px-8 py-4 md:py-6 text-base md:text-lg w-full sm:w-auto'
 							>
 								<Briefcase className='mr-2 h-4 w-4' />
 								<span>Ver Proyectos</span>
