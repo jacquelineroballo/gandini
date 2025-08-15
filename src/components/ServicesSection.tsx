@@ -88,8 +88,8 @@ const ServicesSection = () => {
 						<div className='h-1 w-24 bg-gradient-to-r from-construction-teal-500 to-construction-blue-500 mx-auto rounded-full'></div>
 					</div>
 					<p className='text-construction-gray-600 max-w-3xl mx-auto mt-6 text-lg leading-relaxed'>
-						Ofrecemos soluciones completas en construcción y albañilería, respaldadas por años de
-						experiencia y un equipo altamente calificado.
+						Ofrecemos soluciones completas en construcción, albañilería, pintura, mantenimiento y
+						consultoría respaldadas por años de experiencia.
 					</p>
 				</motion.div>
 
@@ -97,30 +97,28 @@ const ServicesSection = () => {
 					{services.map((service, index) => (
 						<motion.div
 							key={service.id}
-							className='group relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 border border-white/50 cursor-pointer'
+							className='group relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-200 hover:-translate-y-1 border border-white/50 cursor-pointer'
 							onMouseEnter={() => setHoveredIndex(index)}
 							onMouseLeave={() => setHoveredIndex(null)}
 							initial={{ opacity: 0, y: 50 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: index * 0.1 }}
 							viewport={{ once: true }}
-							whileHover={{ scale: 1.02 }}
+							whileHover={{ scale: 1.01 }}
 						>
-							<div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out'></div>
+							{/* Efecto de brillo simplificado */}
+							<div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out'></div>
 
 							<div
-								className={`h-48 bg-gradient-to-br transition-all duration-500 flex items-center justify-center relative overflow-hidden ${
+								className={`h-48 bg-gradient-to-br transition-colors duration-200 flex items-center justify-center relative overflow-hidden ${
 									hoveredIndex === index
 										? 'from-construction-teal-500 via-construction-teal-600 to-construction-blue-600'
 										: 'from-construction-teal-600 via-construction-teal-700 to-construction-blue-700'
 								}`}
 							>
-								<div className='absolute inset-0 opacity-10'>
-									<div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%220.3%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-								</div>
 								<div className='relative z-10'>
 									<div
-										className={`w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 border border-white/30`}
+										className={`w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center transition-all duration-200 group-hover:scale-105 border border-white/30`}
 									>
 										<div className='text-white'>{service.icon}</div>
 									</div>
@@ -132,8 +130,9 @@ const ServicesSection = () => {
 									<span className='text-white/60 text-sm font-bold'>0{service.id}</span>
 								</div>
 							</div>
+							
 							<div className='p-8 relative'>
-								<h3 className='text-xl font-bold mb-4 text-construction-gray-800 group-hover:text-construction-teal-600 transition-colors duration-300'>
+								<h3 className='text-xl font-bold mb-4 text-construction-gray-800 group-hover:text-construction-teal-600 transition-colors duration-200'>
 									{service.title}
 								</h3>
 								<p className='text-construction-gray-600 leading-relaxed mb-6'>
@@ -149,14 +148,15 @@ const ServicesSection = () => {
 								</ul>
 								<Link
 									to='/contacto'
-									className='inline-flex items-center text-construction-teal-600 font-semibold group-hover:text-construction-teal-700 transition-colors duration-300 hover:gap-3'
+									className='inline-flex items-center text-construction-teal-600 font-semibold group-hover:text-construction-teal-700 transition-all duration-200'
 								>
 									<span>Más información</span>
-									<ArrowRight className='w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300' />
+									<ArrowRight className='w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-200' />
 								</Link>
 							</div>
+							
 							<div
-								className={`h-1 bg-gradient-to-r transition-all duration-500 ${
+								className={`h-1 bg-gradient-to-r transition-colors duration-200 ${
 									hoveredIndex === index
 										? 'from-construction-teal-400 to-construction-blue-500'
 										: 'from-construction-teal-500 to-construction-blue-600'
