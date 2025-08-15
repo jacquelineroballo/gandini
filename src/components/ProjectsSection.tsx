@@ -16,38 +16,38 @@ const ProjectsSection = () => {
 	const projects: Project[] = [
 		{
 			id: 1,
-			title: 'Torre Residencial Montecito',
-			category: 'Residencial',
+			title: 'Renovación Integral Casa Moderna',
+			category: 'Renovaciones',
 			imageUrl: 'https://images.unsplash.com/photo-1486718448742-163732cd1544',
-			link: '/proyectos/torre-residencial',
+			link: '/proyectos/renovacion-casa-moderna',
 		},
 		{
 			id: 2,
-			title: 'Centro Comercial Alameda',
-			category: 'Comercial',
+			title: 'Trabajos de Albañilería Especializada',
+			category: 'Albañilería',
 			imageUrl: 'https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace',
-			link: '/proyectos/centro-comercial',
+			link: '/proyectos/albanileria-especializada',
 		},
 		{
 			id: 3,
 			title: 'Remodelación Villa Aurora',
-			category: 'Renovación',
+			category: 'Renovaciones',
 			imageUrl: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa',
 			link: '/proyectos/remodelacion-villa',
 		},
 		{
 			id: 4,
-			title: 'Complejo Corporativo Vértice',
-			category: 'Comercial',
+			title: 'Proyecto de Pintura Decorativa',
+			category: 'Pintura',
 			imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
-			link: '/proyectos/complejo-corporativo',
+			link: '/proyectos/pintura-decorativa',
 		},
 		{
 			id: 5,
-			title: 'Residencia Los Pinos',
-			category: 'Residencial',
+			title: 'Consultoría Técnica Especializada',
+			category: 'Consultoría',
 			imageUrl: 'https://images.unsplash.com/photo-1448630360428-65456885c650',
-			link: '/proyectos/residencia-pinos',
+			link: '/proyectos/consultoria-tecnica',
 		},
 		{
 			id: 6,
@@ -59,7 +59,7 @@ const ProjectsSection = () => {
 	]
 
 	const [activeFilter, setActiveFilter] = useState('Todos')
-	const filters = ['Todos', 'Residencial', 'Comercial', 'Renovación', 'Restauración']
+	const filters = ['Todos', 'Renovaciones', 'Albañilería', 'Pintura', 'Consultoría']
 
 	const filteredProjects =
 		activeFilter === 'Todos'
