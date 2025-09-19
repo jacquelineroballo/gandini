@@ -17,14 +17,14 @@ Sitio web desarrollado para **Gandini**, enfocado en ofrecer una experiencia dig
 
 ## 📂 Estructura del proyecto
 
+```plaintext
 gandini/
-├── public/ # Recursos estáticos
-├── src/ # Código fuente principal
-├── components.json # Configuración de UI
-├── vite.config.ts # Configuración de Vite
-└── package.json # Dependencias del proyecto
-
-
+ ├── public/          # Recursos estáticos
+ ├── src/             # Código fuente principal
+ ├── components.json  # Configuración de UI
+ ├── vite.config.ts   # Configuración de Vite
+ └── package.json     # Dependencias del proyecto
+```
 ---
 
 ## ⚙️ Instalación y uso
