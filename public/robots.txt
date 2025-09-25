@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://gandini.lovable.app/sitemap.xml
+Sitemap: https://gandini.vercel.app//sitemap.xml
 
 # Optimized for search engines
 User-agent: Googlebot
