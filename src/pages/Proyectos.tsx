@@ -5,6 +5,20 @@ import Hero from '@/components/Hero'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
+import { OptimizedImage } from '@/components/ui/OptimizedImage'
+
+// Importaciones de imágenes
+import renovacionCasaImg from '@/assets/images/projects/renovacion-casa.jpg'
+import albanileriaImg from '@/assets/images/projects/albanileria.jpg'
+import departamentoImg from '@/assets/images/projects/departamento.jpg'
+import pinturaImg from '@/assets/images/projects/pintura.jpg'
+import consultoriaImg from '@/assets/images/projects/consultoria.jpg'
+import restauracionImg from '@/assets/images/projects/restauracion.jpg'
+
+// Importaciones de imágenes de galería
+import gallery1 from '@/assets/images/gallery/gallery1.jpg'
+import gallery2 from '@/assets/images/gallery/gallery2.jpg'
+import gallery3 from '@/assets/images/gallery/gallery3.jpg'
 
 interface Project {
 	id: number
@@ -23,112 +37,111 @@ const Proyectos = () => {
 		window.scrollTo(0, 0)
 	}, [])
 
-	const projects: Project[] = useMemo(() => [
-		{
-			id: 1,
-			title: 'Renovación Integral Casa Moderna',
-			location: 'Ciudad de México',
-			category: 'Renovaciones',
-			year: '2023',
-			client: 'Familia González',
-			description:
-				'Renovación completa de una casa de 200 m² incluyendo actualización de instalaciones, remodelación de cocina y baños, y modernización de espacios con diseño contemporáneo.',
-			imageUrl: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625',
-			gallery: [
-				'https://images.unsplash.com/photo-1431576901776-e539bd916ba2',
-				'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e',
-				'https://images.unsplash.com/photo-1460574283810-2aab119d8511',
-			],
-		},
-		{
-			id: 2,
-			title: 'Trabajos de Albañilería Especializada',
-			location: 'Guadalajara',
-			category: 'Albañilería',
-			year: '2022',
-			client: 'Constructora del Valle',
-			description:
-				'Trabajos especializados de albañilería incluyendo muros de carga, acabados en piedra natural, y construcción de elementos arquitectónicos decorativos con técnicas tradicionales.',
-			imageUrl: 'https://images.unsplash.com/photo-1486718448742-163732cd1544',
-			gallery: [
-				'https://images.unsplash.com/photo-1518005020951-eccb494ad742',
-				'https://images.unsplash.com/photo-1496307653780-42ee777d4833',
-				'https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace',
-			],
-		},
-		{
-			id: 3,
-			title: 'Remodelación Villa Aurora',
-			location: 'Monterrey',
-			category: 'Renovaciones',
-			year: '2023',
-			client: 'Familia Rodríguez',
-			description:
-				'Renovación integral de una residencia histórica de 450 m², incluyendo restauración de elementos originales, actualización de sistemas y modernización de interiores manteniendo su carácter arquitectónico.',
-			imageUrl: 'https://images.unsplash.com/photo-1496307653780-42ee777d4833',
-			gallery: [
-				'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e',
-				'https://images.unsplash.com/photo-1460574283810-2aab119d8511',
-				'https://images.unsplash.com/photo-1487958449943-2429e8be8625',
-			],
-		},
-		{
-			id: 4,
-			title: 'Proyecto de Pintura Decorativa',
-			location: 'Ciudad de México',
-			category: 'Pintura',
-			year: '2022',
-			client: 'Hotel Boutique Central',
-			description:
-				'Proyecto integral de pintura decorativa incluyendo técnicas especiales, murales artísticos y acabados texturizados para crear ambientes únicos y sofisticados.',
-			imageUrl: 'https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace',
-			gallery: [
-				'https://images.unsplash.com/photo-1486718448742-163732cd1544',
-				'https://images.unsplash.com/photo-1518005020951-eccb494ad742',
-				'https://images.unsplash.com/photo-1496307653780-42ee777d4833',
-			],
-		},
-		{
-			id: 5,
-			title: 'Consultoría Técnica Especializada',
-			location: 'Cancún',
-			category: 'Consultoría',
-			year: '2023',
-			client: 'Desarrollo Inmobiliario Costa',
-			description:
-				'Servicios de consultoría técnica para proyecto de desarrollo inmobiliario, incluyendo análisis estructural, supervisión de obra y asesoría en normativas de construcción.',
-			imageUrl: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742',
-			gallery: [
-				'https://images.unsplash.com/photo-1486718448742-163732cd1544',
-				'https://images.unsplash.com/photo-1496307653780-42ee777d4833',
-				'https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace',
-			],
-		},
-		{
-			id: 6,
-			title: 'Restauración Edificio Histórico',
-			location: 'Puebla',
-			category: 'Restauración',
-			year: '2021',
-			client: 'Instituto Cultural Nacional',
-			description:
-				'Restauración meticulosa de un edificio del siglo XIX con valor patrimonial, recuperando elementos arquitectónicos originales y adaptando el espacio para su nuevo uso como centro cultural.',
-			imageUrl: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e',
-			gallery: [
-				'https://images.unsplash.com/photo-1460574283810-2aab119d8511',
-				'https://images.unsplash.com/photo-1487958449943-2429e8be8625',
-				'https://images.unsplash.com/photo-1431576901776-e539bd916ba2',
-			],
-		},
-	], [])
+	// Preload all project images
+	useEffect(() => {
+		const images = [...projects.map((p) => p.imageUrl), ...projects.flatMap((p) => p.gallery)]
+		const preloadImage = (src: string) => {
+			const img = new Image()
+			img.src = src
+		}
+		images.forEach(preloadImage)
+	}, [])
+
+	// Debug log para las imágenes
+	useEffect(() => {
+		console.log('renovacionCasaImg:', renovacionCasaImg)
+		console.log('gallery1:', gallery1)
+	}, [])
+
+	const projects: Project[] = useMemo(
+		() => [
+			{
+				id: 1,
+				title: 'Renovación Integral Casa Moderna',
+				location: 'Ciudad de México',
+				category: 'Renovaciones',
+				year: '2023',
+				client: 'Familia González',
+				description:
+					'Renovación completa de una casa de 200 m² incluyendo actualización de instalaciones, remodelación de cocina y baños, y modernización de espacios con diseño contemporáneo.',
+				imageUrl: renovacionCasaImg,
+				gallery: [gallery1, gallery2, gallery3],
+			},
+			{
+				id: 2,
+				title: 'Trabajos de Albañilería Especializada',
+				location: 'Guadalajara',
+				category: 'Albañilería',
+				year: '2022',
+				client: 'Constructora del Valle',
+				description:
+					'Trabajos especializados de albañilería incluyendo muros de carga, acabados en piedra natural, y construcción de elementos arquitectónicos decorativos con técnicas tradicionales.',
+				imageUrl: albanileriaImg,
+				gallery: [gallery1, gallery2, gallery3],
+			},
+			{
+				id: 3,
+				title: 'Remodelación Villa Aurora',
+				location: 'Monterrey',
+				category: 'Renovaciones',
+				year: '2023',
+				client: 'Familia Rodríguez',
+				description:
+					'Renovación integral de una residencia histórica de 450 m², incluyendo restauración de elementos originales, actualización de sistemas y modernización de interiores manteniendo su carácter arquitectónico.',
+				imageUrl: departamentoImg,
+				gallery: [gallery1, gallery2, gallery3],
+			},
+			{
+				id: 4,
+				title: 'Proyecto de Pintura Decorativa',
+				location: 'Ciudad de México',
+				category: 'Pintura',
+				year: '2022',
+				client: 'Hotel Boutique Central',
+				description:
+					'Proyecto integral de pintura decorativa incluyendo técnicas especiales, murales artísticos y acabados texturizados para crear ambientes únicos y sofisticados.',
+				imageUrl: pinturaImg,
+				gallery: [gallery1, gallery2, gallery3],
+			},
+			{
+				id: 5,
+				title: 'Consultoría Técnica Especializada',
+				location: 'Cancún',
+				category: 'Consultoría',
+				year: '2023',
+				client: 'Desarrollo Inmobiliario Costa',
+				description:
+					'Servicios de consultoría técnica para proyecto de desarrollo inmobiliario, incluyendo análisis estructural, supervisión de obra y asesoría en normativas de construcción.',
+				imageUrl: consultoriaImg,
+				gallery: [gallery1, gallery2, gallery3],
+			},
+			{
+				id: 6,
+				title: 'Restauración Edificio Histórico',
+				location: 'Puebla',
+				category: 'Restauración',
+				year: '2021',
+				client: 'Instituto Cultural Nacional',
+				description:
+					'Restauración meticulosa de un edificio del siglo XIX con valor patrimonial, recuperando elementos arquitectónicos originales y adaptando el espacio para su nuevo uso como centro cultural.',
+				imageUrl: restauracionImg,
+				gallery: [gallery1, gallery2, gallery3],
+			},
+		],
+		[]
+	)
 
 	const [activeFilter, setActiveFilter] = useState('Todos')
-	const filters = useMemo(() => ['Todos', 'Renovaciones', 'Albañilería', 'Pintura', 'Consultoría'], [])
+	const filters = useMemo(
+		() => ['Todos', 'Renovaciones', 'Albañilería', 'Pintura', 'Consultoría'],
+		[]
+	)
 
-	const filteredProjects = useMemo(() => 
-		activeFilter === 'Todos'
-			? projects
-			: projects.filter((project) => project.category === activeFilter),
+	const filteredProjects = useMemo(
+		() =>
+			activeFilter === 'Todos'
+				? projects
+				: projects.filter((project) => project.category === activeFilter),
 		[activeFilter, projects]
 	)
 
@@ -153,7 +166,7 @@ const Proyectos = () => {
 			<Hero
 				title='Nuestros Proyectos'
 				subtitle='Explora nuestra galería de obras destacadas, donde la visión se convierte en realidad a través de la construcción de calidad y el diseño innovador.'
-				backgroundImage='https://images.unsplash.com/photo-1487958449943-2429e8be8625'
+				backgroundImage={renovacionCasaImg}
 				buttonText='Contactar Ahora'
 				buttonLink='/contacto'
 			/>
@@ -196,10 +209,11 @@ const Proyectos = () => {
 								onClick={() => openProjectModal(project)}
 							>
 								<div className='relative h-64 overflow-hidden'>
-									<img
+									<OptimizedImage
 										src={project.imageUrl}
-										alt={project.title}
+										alt={`${project.title} - ${project.category}`}
 										className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
+										fallbackSrc={renovacionCasaImg}
 									/>
 									<div className='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end'>
 										<div className='p-6 w-full'>
@@ -229,10 +243,12 @@ const Proyectos = () => {
 				<div className='fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70'>
 					<div className='bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto'>
 						<div className='relative'>
-							<img
+							<OptimizedImage
 								src={selectedProject.imageUrl}
-								alt={selectedProject.title}
+								alt={`Vista principal del proyecto ${selectedProject.title}`}
 								className='w-full h-64 object-cover'
+								priority={true}
+								fallbackSrc={renovacionCasaImg}
 							/>
 							<button
 								onClick={closeProjectModal}
@@ -297,11 +313,13 @@ const Proyectos = () => {
 								<div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
 									{selectedProject.gallery.map((image, index) => (
 										<div key={index} className='h-40 overflow-hidden rounded-lg'>
-											<img
+											<OptimizedImage
 												src={image}
-												alt={`Galería ${index + 1}`}
+												alt={`Galería de imágenes del proyecto ${selectedProject.title} - Imagen ${
+													index + 1
+												}`}
 												className='w-full h-full object-cover'
-												loading='lazy'
+												fallbackSrc={renovacionCasaImg}
 											/>
 										</div>
 									))}

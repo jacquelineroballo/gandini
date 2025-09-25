@@ -2,8 +2,16 @@ import { useState, memo, useMemo } from 'react'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import OptimizedImage from './OptimizedImage'
+import { OptimizedImage } from '@/components/ui/OptimizedImage'
 import { useImagePreloader } from '@/hooks/useImagePreloader'
+
+// Importaciones de imágenes locales optimizadas
+import renovacionCasaImg from '@/assets/images/projects/renovacion-casa.jpg'
+import albanileriaImg from '@/assets/images/projects/albanileria.jpg'
+import departamentoImg from '@/assets/images/projects/departamento.jpg'
+import pinturaImg from '@/assets/images/projects/pintura.jpg'
+import consultoriaImg from '@/assets/images/projects/consultoria.jpg'
+import restauracionImg from '@/assets/images/projects/restauracion.jpg'
 
 interface Project {
 	id: number
@@ -19,42 +27,42 @@ const ProjectsSection = () => {
 			id: 1,
 			title: 'Renovación Integral Casa Moderna',
 			category: 'Renovaciones',
-			imageUrl: 'https://images.unsplash.com/photo-1486718448742-163732cd1544',
+			imageUrl: renovacionCasaImg,
 			link: '/proyectos/renovacion-casa-moderna',
 		},
 		{
 			id: 2,
 			title: 'Trabajos de Albañilería Especializada',
 			category: 'Albañilería',
-			imageUrl: 'https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace',
+			imageUrl: albanileriaImg,
 			link: '/proyectos/albanileria-especializada',
 		},
 		{
 			id: 3,
-			title: 'Remodelación Villa Aurora',
+			title: 'Remodelación Departamento',
 			category: 'Renovaciones',
-			imageUrl: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa',
-			link: '/proyectos/remodelacion-villa',
+			imageUrl: departamentoImg,
+			link: '/proyectos/remodelacion-departamento',
 		},
 		{
 			id: 4,
 			title: 'Proyecto de Pintura Decorativa',
 			category: 'Pintura',
-			imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+			imageUrl: pinturaImg,
 			link: '/proyectos/pintura-decorativa',
 		},
 		{
 			id: 5,
 			title: 'Consultoría Técnica Especializada',
 			category: 'Consultoría',
-			imageUrl: 'https://images.unsplash.com/photo-1448630360428-65456885c650',
+			imageUrl: consultoriaImg,
 			link: '/proyectos/consultoria-tecnica',
 		},
 		{
 			id: 6,
 			title: 'Restauración Edificio Histórico',
 			category: 'Restauración',
-			imageUrl: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e',
+			imageUrl: restauracionImg,
 			link: '/proyectos/restauracion-edificio',
 		},
 	]

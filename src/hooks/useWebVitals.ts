@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react'
-import { onCLS, onFID, onLCP, onFCP, onTTFB } from 'web-vitals'
+import { getCLS, getFID, getLCP, getFCP, getTTFB } from 'web-vitals'
 
 type MetricName = 'CLS' | 'FID' | 'LCP' | 'FCP' | 'TTFB'
 
@@ -26,11 +26,11 @@ const useWebVitals = (onMetric?: (metric: Metric) => void) => {
 	)
 
 	useEffect(() => {
-		onCLS(handleMetric)
-		onFID(handleMetric)
-		onLCP(handleMetric)
-		onFCP(handleMetric)
-		onTTFB(handleMetric)
+		getCLS(handleMetric)
+		getFID(handleMetric)
+		getLCP(handleMetric)
+		getFCP(handleMetric)
+		getTTFB(handleMetric)
 	}, [handleMetric])
 }
 
