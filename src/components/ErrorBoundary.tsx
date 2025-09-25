@@ -1,6 +1,7 @@
 import { Component, ErrorInfo, ReactNode } from 'react'
 import { AlertTriangle, RefreshCw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import useErrorBoundaryAnalytics from '@/hooks/useErrorBoundaryAnalytics'
 
 interface Props {
 	children: ReactNode
@@ -23,13 +24,8 @@ export class ErrorBoundary extends Component<Props, State> {
 	}
 
 	public override componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-		console.error('Error capturado por ErrorBoundary:', error, errorInfo)
 		this.setState({ errorInfo })
-
-		// En producción, aquí enviarías el error a un servicio de monitoreo
-		if (process.env.NODE_ENV === 'production') {
-			// trackError(error, { errorInfo });
-		}
+		useErrorBoundaryAnalytics({ error, componentStack: errorInfo.componentStack })
 	}
 
 	private handleRetry = () => {

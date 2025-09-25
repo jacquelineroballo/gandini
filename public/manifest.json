@@ -1,0 +1,17 @@
+{
+	"name": "Gandini",
+	"short_name": "Gandini",
+	"description": "Servicios de arquitectura y construcción",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#000000",
+	"icons": [
+		{
+			"src": "/icons/architecture.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "any maskable"
+		}
+	]
+}
