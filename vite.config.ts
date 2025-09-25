@@ -13,49 +13,49 @@ export default defineConfig(({ mode }) => ({
 		host: '::',
 		port: 8080,
 	},
-  plugins: [
-    react(),
-    mode === 'development' && componentTagger(),
-	viteCompression({
-	  algorithm: 'brotliCompress',
-	  ext: '.br',
-	}),
-    viteCompression({
-      algorithm: 'gzip',
-      ext: '.gz',
-    }),
-    viteImagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      mozjpeg: {
-        quality: 75,
-        progressive: true,
-      },
-      pngquant: {
-        quality: [0.7, 0.8],
-        speed: 4,
-        strip: true,
-      },
-      webp: {
-        quality: 75,
-        method: 6,
-      },
-      svgo: {
-        plugins: [
-          {
-            name: 'removeViewBox',
-          },
-          {
-            name: 'removeEmptyAttrs',
-            active: false,
-          },
-        ],
-      },
+	plugins: [
+		react(),
+		mode === 'development' && componentTagger(),
+		viteCompression({
+			algorithm: 'brotliCompress',
+			ext: '.br',
+		}),
+		viteCompression({
+			algorithm: 'gzip',
+			ext: '.gz',
+		}),
+		viteImagemin({
+			gifsicle: {
+				optimizationLevel: 7,
+				interlaced: false,
+			},
+			optipng: {
+				optimizationLevel: 7,
+			},
+			mozjpeg: {
+				quality: 75,
+				progressive: true,
+			},
+			pngquant: {
+				quality: [0.7, 0.8],
+				speed: 4,
+				strip: true,
+			},
+			webp: {
+				quality: 75,
+				method: 6,
+			},
+			svgo: {
+				plugins: [
+					{
+						name: 'removeViewBox',
+					},
+					{
+						name: 'removeEmptyAttrs',
+						active: false,
+					},
+				],
+			},
 		}),
 		mode === 'production' &&
 			visualizer({

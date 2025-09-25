@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense } from 'react'
 import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
@@ -11,12 +11,12 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { PageSkeleton } from '@/components/ui/PageSkeleton'
 
-// Lazy loading de páginas para code splitting
-const Index = lazy(() => import('./pages/Index'))
-const Servicios = lazy(() => import('./pages/Servicios'))
-const Proyectos = lazy(() => import('./pages/Proyectos'))
-const Contacto = lazy(() => import('./pages/Contacto'))
-const NotFound = lazy(() => import('./pages/NotFound'))
+// Importaciones directas de páginas
+import Index from './pages/Index'
+import Servicios from './pages/Servicios'
+import Proyectos from './pages/Proyectos'
+import Contacto from './pages/Contacto'
+import NotFound from './pages/NotFound'
 
 // Configuración optimizada de React Query
 const queryClient = new QueryClient({

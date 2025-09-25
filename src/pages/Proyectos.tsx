@@ -5,20 +5,9 @@ import Hero from '@/components/Hero'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
-import { OptimizedImage } from '@/components/ui/OptimizedImage'
 
-// Importaciones de imágenes
-import renovacionCasaImg from '@/assets/images/projects/renovacion-casa.jpg'
-import albanileriaImg from '@/assets/images/projects/albanileria.jpg'
-import departamentoImg from '@/assets/images/projects/departamento.jpg'
-import pinturaImg from '@/assets/images/projects/pintura.jpg'
-import consultoriaImg from '@/assets/images/projects/consultoria.jpg'
-import restauracionImg from '@/assets/images/projects/restauracion.jpg'
-
-// Importaciones de imágenes de galería
-import gallery1 from '@/assets/images/gallery/gallery1.jpg'
-import gallery2 from '@/assets/images/gallery/gallery2.jpg'
-import gallery3 from '@/assets/images/gallery/gallery3.jpg'
+// Importar configuración de imágenes temporales
+import { PLACEHOLDER_IMAGE, projectImages, galleryImages } from '@/lib/images'
 
 interface Project {
 	id: number
@@ -64,8 +53,8 @@ const Proyectos = () => {
 				client: 'Familia González',
 				description:
 					'Renovación completa de una casa de 200 m² incluyendo actualización de instalaciones, remodelación de cocina y baños, y modernización de espacios con diseño contemporáneo.',
-				imageUrl: renovacionCasaImg,
-				gallery: [gallery1, gallery2, gallery3],
+				imageUrl: projectImages.renovacionCasa,
+				gallery: galleryImages,
 			},
 			{
 				id: 2,
@@ -76,8 +65,8 @@ const Proyectos = () => {
 				client: 'Constructora del Valle',
 				description:
 					'Trabajos especializados de albañilería incluyendo muros de carga, acabados en piedra natural, y construcción de elementos arquitectónicos decorativos con técnicas tradicionales.',
-				imageUrl: albanileriaImg,
-				gallery: [gallery1, gallery2, gallery3],
+				imageUrl: projectImages.albanileria,
+				gallery: galleryImages,
 			},
 			{
 				id: 3,
@@ -88,8 +77,8 @@ const Proyectos = () => {
 				client: 'Familia Rodríguez',
 				description:
 					'Renovación integral de una residencia histórica de 450 m², incluyendo restauración de elementos originales, actualización de sistemas y modernización de interiores manteniendo su carácter arquitectónico.',
-				imageUrl: departamentoImg,
-				gallery: [gallery1, gallery2, gallery3],
+				imageUrl: projectImages.departamento,
+				gallery: galleryImages,
 			},
 			{
 				id: 4,
@@ -100,8 +89,8 @@ const Proyectos = () => {
 				client: 'Hotel Boutique Central',
 				description:
 					'Proyecto integral de pintura decorativa incluyendo técnicas especiales, murales artísticos y acabados texturizados para crear ambientes únicos y sofisticados.',
-				imageUrl: pinturaImg,
-				gallery: [gallery1, gallery2, gallery3],
+				imageUrl: projectImages.pintura,
+				gallery: galleryImages,
 			},
 			{
 				id: 5,
@@ -112,8 +101,8 @@ const Proyectos = () => {
 				client: 'Desarrollo Inmobiliario Costa',
 				description:
 					'Servicios de consultoría técnica para proyecto de desarrollo inmobiliario, incluyendo análisis estructural, supervisión de obra y asesoría en normativas de construcción.',
-				imageUrl: consultoriaImg,
-				gallery: [gallery1, gallery2, gallery3],
+				imageUrl: projectImages.consultoria,
+				gallery: galleryImages,
 			},
 			{
 				id: 6,
@@ -124,8 +113,8 @@ const Proyectos = () => {
 				client: 'Instituto Cultural Nacional',
 				description:
 					'Restauración meticulosa de un edificio del siglo XIX con valor patrimonial, recuperando elementos arquitectónicos originales y adaptando el espacio para su nuevo uso como centro cultural.',
-				imageUrl: restauracionImg,
-				gallery: [gallery1, gallery2, gallery3],
+				imageUrl: projectImages.restauracion,
+				gallery: galleryImages,
 			},
 		],
 		[]
