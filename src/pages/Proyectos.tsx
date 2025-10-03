@@ -6,8 +6,14 @@ import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 
-// Importar configuración de imágenes temporales
-import { PLACEHOLDER_IMAGE, projectImages, galleryImages } from '@/lib/images'
+// Importar imágenes locales
+import renovacionCasaImg from '@/assets/images/projects/renovacion-casa.jpg'
+import gallery1 from '@/assets/images/gallery/gallery1.jpg'
+import gallery2 from '@/assets/images/gallery/gallery2.jpg'
+import gallery3 from '@/assets/images/gallery/gallery3.jpg'
+
+// Importar configuración de imágenes
+import { projectImages, galleryImages } from '@/lib/images'
 
 interface Project {
 	id: number
@@ -34,6 +40,12 @@ const Proyectos = () => {
 			img.src = src
 		}
 		images.forEach(preloadImage)
+	}, [])
+
+	// Debug log para las imágenes
+	useEffect(() => {
+		console.log('renovacionCasaImg:', renovacionCasaImg)
+		console.log('gallery1:', gallery1)
 	}, [])
 
 	// Debug log para las imágenes
@@ -198,11 +210,13 @@ const Proyectos = () => {
 								onClick={() => openProjectModal(project)}
 							>
 								<div className='relative h-64 overflow-hidden'>
-									<OptimizedImage
+									<img
 										src={project.imageUrl}
 										alt={`${project.title} - ${project.category}`}
 										className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
-										fallbackSrc={renovacionCasaImg}
+										onError={(e) => {
+											;(e.target as HTMLImageElement).src = renovacionCasaImg
+										}}
 									/>
 									<div className='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end'>
 										<div className='p-6 w-full'>
@@ -232,12 +246,13 @@ const Proyectos = () => {
 				<div className='fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70'>
 					<div className='bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto'>
 						<div className='relative'>
-							<OptimizedImage
+							<img
 								src={selectedProject.imageUrl}
 								alt={`Vista principal del proyecto ${selectedProject.title}`}
 								className='w-full h-64 object-cover'
-								priority={true}
-								fallbackSrc={renovacionCasaImg}
+								onError={(e) => {
+									;(e.target as HTMLImageElement).src = renovacionCasaImg
+								}}
 							/>
 							<button
 								onClick={closeProjectModal}
@@ -302,13 +317,15 @@ const Proyectos = () => {
 								<div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
 									{selectedProject.gallery.map((image, index) => (
 										<div key={index} className='h-40 overflow-hidden rounded-lg'>
-											<OptimizedImage
+											<img
 												src={image}
 												alt={`Galería de imágenes del proyecto ${selectedProject.title} - Imagen ${
 													index + 1
 												}`}
 												className='w-full h-full object-cover'
-												fallbackSrc={renovacionCasaImg}
+												onError={(e) => {
+													;(e.target as HTMLImageElement).src = gallery1
+												}}
 											/>
 										</div>
 									))}

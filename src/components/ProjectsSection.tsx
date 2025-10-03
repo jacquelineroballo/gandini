@@ -1,11 +1,10 @@
-import { useState, memo, useMemo } from 'react'
+import { useState, memo } from 'react'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { OptimizedImage } from '@/components/ui/OptimizedImage'
-import { useImagePreloader } from '@/hooks/useImagePreloader'
 
-// Importaciones de imágenes locales optimizadas
+// Importaciones de imágenes locales
 import renovacionCasaImg from '@/assets/images/projects/renovacion-casa.jpg'
 import albanileriaImg from '@/assets/images/projects/albanileria.jpg'
 import departamentoImg from '@/assets/images/projects/departamento.jpg'
@@ -13,16 +12,10 @@ import pinturaImg from '@/assets/images/projects/pintura.jpg'
 import consultoriaImg from '@/assets/images/projects/consultoria.jpg'
 import restauracionImg from '@/assets/images/projects/restauracion.jpg'
 
-interface Project {
-	id: number
-	title: string
-	category: string
-	imageUrl: string
-	link: string
-}
-
 const ProjectsSection = () => {
-	const projects: Project[] = [
+	console.log('ProjectsSection rendering') // Add this debug log
+
+	const projects = [
 		{
 			id: 1,
 			title: 'Renovación Integral Casa Moderna',
