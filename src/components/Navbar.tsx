@@ -203,22 +203,17 @@ const Navbar = () => {
 													icon: HelpCircle,
 												},
 											].map((service) => (
-												<li key={service.title}>
-													<NavigationMenuLink asChild>
-														<a
-															href='#'
-															className='block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-teal-500/10 hover:text-teal-500'
-														>
-															<div className='flex items-center gap-2 mb-1 text-sm font-medium leading-none'>
-																<service.icon className='h-4 w-4' />
-																<span>{service.title}</span>
-															</div>
-															<p className='line-clamp-2 text-sm leading-snug text-muted-foreground'>
-																{service.description}
-															</p>
-														</a>
-													</NavigationMenuLink>
-												</li>
+										<li key={service.title}>
+											<div className='block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none cursor-default'>
+												<div className='flex items-center gap-2 mb-1 text-sm font-medium leading-none'>
+													<service.icon className='h-4 w-4' />
+													<span>{service.title}</span>
+												</div>
+												<p className='line-clamp-2 text-sm leading-snug text-muted-foreground'>
+													{service.description}
+												</p>
+											</div>
+										</li>
 											))}
 										</ul>
 									</NavigationMenuContent>
