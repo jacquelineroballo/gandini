@@ -79,9 +79,9 @@ const ServicesSection = () => {
 
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6'>
 					{services.map((service, index) => (
-						<motion.div
+					<motion.div
 							key={service.id}
-							className='group relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-150 hover:-translate-y-1 border border-white/50 cursor-pointer'
+							className='group relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-150 hover:-translate-y-1 border border-white/50 cursor-pointer flex flex-col'
 							onMouseEnter={() => setHoveredIndex(index)}
 							onMouseLeave={() => setHoveredIndex(null)}
 							initial={{ opacity: 0, y: 30 }}
@@ -112,7 +112,7 @@ const ServicesSection = () => {
 									<span className='text-white/60 text-xs font-bold'>0{service.id}</span>
 								</div>
 							</div>
-							<div className='p-4 relative'>
+							<div className='p-4 relative flex-1 flex flex-col'>
 								<h3 className='text-lg font-bold mb-2 text-construction-gray-800 group-hover:text-construction-teal-600 transition-colors duration-150'>
 									{service.title}
 								</h3>
@@ -127,17 +127,19 @@ const ServicesSection = () => {
 										</li>
 									))}
 								</ul>
-								<Link
-									to='/contacto'
-									className='inline-flex items-center text-construction-teal-600 font-semibold group-hover:text-construction-teal-700 transition-all duration-150 text-sm'
-								>
-									<span>Más info</span>
-									<ArrowRight className='w-3 h-3 ml-1 transform group-hover:translate-x-1 transition-transform duration-150' />
-								</Link>
+								<div className='mt-auto'>
+									<Link
+										to='/contacto'
+										className='inline-flex items-center text-construction-teal-600 font-semibold group-hover:text-construction-teal-700 transition-all duration-150 text-sm'
+									>
+										<span>Más info</span>
+										<ArrowRight className='w-3 h-3 ml-1 transform group-hover:translate-x-1 transition-transform duration-150' />
+									</Link>
+								</div>
 							</div>
 
 							<div
-								className={`h-1 bg-gradient-to-r transition-colors duration-150 ${
+								className={`h-1 bg-gradient-to-r transition-colors duration-150 mt-auto ${
 									hoveredIndex === index
 										? 'from-construction-teal-400 to-construction-blue-500'
 										: 'from-construction-teal-500 to-construction-blue-600'
