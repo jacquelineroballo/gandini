@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -13,24 +13,19 @@ import {
 import {
 	Briefcase,
 	Phone,
-	ChevronDown,
 	MenuIcon,
-	X,
 	Home,
 	Settings,
 	FileText,
 	Activity,
 	CheckCircle,
 	HelpCircle,
-	Clock,
-	Award,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
 	Drawer,
 	DrawerClose,
 	DrawerContent,
-	DrawerDescription,
 	DrawerFooter,
 	DrawerHeader,
 	DrawerTitle,
@@ -147,7 +142,7 @@ const Navbar = () => {
 					>
 						<NavigationMenu className='z-10'>
 							<NavigationMenuList>
-								{navLinks.map((link, index) => (
+								{navLinks.map((link) => (
 									<NavigationMenuItem key={link.title}>
 										<NavigationMenuLink asChild>
 											<Link 
@@ -297,7 +292,7 @@ const Navbar = () => {
 											{ title: 'Proyectos Comerciales', icon: Briefcase },
 											{ title: 'Renovaciones', icon: Activity },
 											{ title: 'Consultoría', icon: HelpCircle },
-										].map((service, idx) => (
+										].map((service) => (
 											<DrawerClose asChild key={service.title}>
 												<a
 													href='#'

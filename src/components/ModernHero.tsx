@@ -19,13 +19,6 @@ const ModernHero = ({
 	buttonText = 'Saber más',
 	buttonLink = '/servicios',
 }: HeroProps) => {
-	const scrollToContent = () => {
-		const contentSection = document.getElementById('content-section')
-		if (contentSection) {
-			contentSection.scrollIntoView({ behavior: 'smooth' })
-		}
-	}
-
 	return (
 		<section
 			className='relative min-h-screen flex items-center justify-center overflow-hidden'
@@ -39,13 +32,12 @@ const ModernHero = ({
 					transition={{ duration: 1.5, ease: 'easeOut' }}
 					className='absolute inset-0'
 				>
-					<OptimizedImage
-						src={backgroundImage}
-						alt='Construction background'
-						className='w-full h-full object-cover object-center'
-						priority={true}
-						fallbackSrc='https://images.unsplash.com/photo-1486718448742-163732cd1544?q=80&w=2832&auto=format&fit=crop'
-					/>
+				<OptimizedImage
+					src={backgroundImage}
+					alt='Construction background'
+					className='w-full h-full object-cover object-center'
+					priority={true}
+				/>
 					<div className='absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/50 to-gray-900/80' />
 				</motion.div>
 

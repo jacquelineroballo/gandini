@@ -25,7 +25,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
 	public override componentDidCatch(error: Error, errorInfo: ErrorInfo) {
 		this.setState({ errorInfo })
-		useErrorBoundaryAnalytics({ error, componentStack: errorInfo.componentStack })
+		useErrorBoundaryAnalytics({ error, componentStack: errorInfo.componentStack || '' })
 	}
 
 	private handleRetry = () => {

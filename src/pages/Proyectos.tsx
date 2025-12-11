@@ -9,8 +9,6 @@ import { motion } from 'framer-motion'
 // Importar imágenes locales
 import renovacionCasaImg from '@/assets/images/projects/renovacion-casa.jpg'
 import gallery1 from '@/assets/images/gallery/gallery1.jpg'
-import gallery2 from '@/assets/images/gallery/gallery2.jpg'
-import gallery3 from '@/assets/images/gallery/gallery3.jpg'
 
 // Importar configuración de imágenes
 import { projectImages, galleryImages } from '@/lib/images'
