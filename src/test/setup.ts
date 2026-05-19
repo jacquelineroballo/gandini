@@ -42,7 +42,7 @@ declare global {
           rootBounds: null,
           time: Date.now()
         } as IntersectionObserverEntry
-      ], this);
+      ], this as unknown as IntersectionObserver);
     }, 0);
   }
   unobserve() {}
