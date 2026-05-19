@@ -25,7 +25,29 @@ export class ErrorBoundary extends Component<Props, State> {
 
 	public override componentDidCatch(error: Error, errorInfo: ErrorInfo) {
 		this.setState({ errorInfo })
-		useErrorBoundaryAnalytics({ error, componentStack: errorInfo.componentStack || '' })
+		const errorDetails = {
+			name: error.name,
+			message: error.message,
+			stack: error.stack,
+			componentStack: errorInfo.componentStack || '',
+			timestamp: new Date().toISOString(),
+			url: window.location.href,
+			userAgent: navigator.userAgent,
+		}
+		if (process.env.NODE_ENV === 'development') {
+			console.group('Error Boundary Details')
+			console.error('Error:', error)
+			console.error('Component Stack:', errorInfo.componentStack)
+			console.error('Full Details:', errorDetails)
+			console.groupEnd()
+		}
+		if (process.env.NODE_ENV === 'production') {
+			fetch('/api/error-logging', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(errorDetails),
+			}).catch(console.error)
+		}
 	}
 
 	private handleRetry = () => {
