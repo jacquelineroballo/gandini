@@ -51,6 +51,7 @@ declare global {
   }
   root: Element | null = null;
   rootMargin: string = '';
+  scrollMargin: string = '';
   thresholds: number[] = [];
 };
 
