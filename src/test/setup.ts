@@ -42,7 +42,7 @@ declare global {
           rootBounds: null,
           time: Date.now()
         } as IntersectionObserverEntry
-      ], this);
+      ], this as unknown as IntersectionObserver);
     }, 0);
   }
   unobserve() {}
@@ -51,6 +51,7 @@ declare global {
   }
   root: Element | null = null;
   rootMargin: string = '';
+  scrollMargin: string = '';
   thresholds: number[] = [];
 };
 
