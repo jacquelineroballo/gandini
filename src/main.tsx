@@ -2,18 +2,29 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// Registrar el Service Worker
+const clearLegacyRuntimeCaches = async () => {
+	if ('caches' in window) {
+		const cacheNames = await caches.keys()
+		await Promise.all(
+			cacheNames
+				.filter((cacheName) => cacheName.startsWith('gandini-cache'))
+				.map((cacheName) => caches.delete(cacheName))
+		)
+	}
+}
+
 if ('serviceWorker' in navigator) {
-	window.addEventListener('load', () => {
-		navigator.serviceWorker
-			.register('/sw.js')
-			.then((registration) => {
-				console.log('SW registered: ', registration)
-			})
-			.catch((registrationError) => {
-				console.log('SW registration failed: ', registrationError)
-			})
-	})
+	if (import.meta.env.PROD) {
+		window.addEventListener('load', () => {
+			navigator.serviceWorker.register('/sw.js').catch(console.error)
+		})
+	} else {
+		void navigator.serviceWorker
+			.getRegistrations()
+			.then((registrations) => Promise.all(registrations.map((registration) => registration.unregister())))
+			.then(clearLegacyRuntimeCaches)
+			.catch(console.error)
+	}
 }
 
 createRoot(document.getElementById('root')!).render(<App />)
